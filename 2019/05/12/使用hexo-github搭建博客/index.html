@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="hexo坏境搭建  安装并配置node.js坏境，打开cmd，用node -v和npm -v查看是否成功 安装并配置git坏境，用git –version查看是否成功 登录Github，新建项目，项目名称格式：账户名.github.io，并且勾选Initialize this repository with a README  在建好的项目右侧有个settings按钮，点击它，向下拉到GitHub">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-12T12:58:26.867Z">
+<meta property="og:updated_time" content="2019-05-12T13:08:58.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo+github搭建博客">
 <meta name="twitter:description" content="hexo坏境搭建  安装并配置node.js坏境，打开cmd，用node -v和npm -v查看是否成功 安装并配置git坏境，用git –version查看是否成功 登录Github，新建项目，项目名称格式：账户名.github.io，并且勾选Initialize this repository with a README  在建好的项目右侧有个settings按钮，点击它，向下拉到GitHub">
@@ -99,9 +99,9 @@
 <li>生成ssh key</li>
 <li>登录github， 点击头像下方的settings，添加ssh key，将id_rsa.pub文件里的内容复制上去</li>
 <li>在本地ssh命令窗口，输入ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，再输入yes。如果看到Hi后面是你的用户名，就说明成功了。</li>
-<li>配置Deployment，在blog文件夹中，找到_config.yml文件，修改repo值<br>  deploy:<br>   type: git<br>   repository: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:bimb1983/bimb1983.github.io.git<br>   branch: master</li>
+<li>配置Deployment，在blog文件夹中，找到_config.yml文件，修改repo值<br>  deploy:<br>   type: git<br>   repository: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:bimb1983/bimb1983.github.io.git<br>   branch: master<br>10  在生成以及部署文章之前，需要安装一个扩展：npm install hexo-deployer-git –save</li>
 </ol>
-<p>发表博客<br>10  在生成以及部署文章之前，需要安装一个扩展：npm install hexo-deployer-git –save</p>
+<p>发表博客</p>
 <ol start="11">
 <li>在blog路径下打开cmd窗口，执行命令：hexo new post “博客名”  ，在blog/source/_posts目录下将会创建一个文件《博客名.md》</li>
 <li>使用命令：hexo d -g，生成以及部署文章</li>
@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/12/使用hexo-github搭建博客/" data-id="cjvkycyv70001uovkhv14nm0s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/12/使用hexo-github搭建博客/" data-id="cjvkyg9dc0001ccvk831cgfw5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -119,6 +119,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/05/12/tes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          tes
+        
+      </div>
+    </a>
   
   
     <a href="/2019/05/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -158,6 +167,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/05/12/tes/">tes</a>
+          </li>
         
           <li>
             <a href="/2019/05/12/使用hexo-github搭建博客/">使用hexo+github搭建博客</a>
