@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="hexo坏境搭建  安装并配置node.js坏境，打开cmd，用node -v和npm -v查看是否成功 安装并配置git坏境，用git –version查看是否成功 登录Github，新建项目，项目名称格式：账户名.github.io，并且勾选Initialize this repository with a README  在建好的项目右侧有个settings按钮，点击它，向下拉到GitHub">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-12T13:08:58.946Z">
+<meta property="og:updated_time" content="2019-05-12T13:15:17.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo+github搭建博客">
 <meta name="twitter:description" content="hexo坏境搭建  安装并配置node.js坏境，打开cmd，用node -v和npm -v查看是否成功 安装并配置git坏境，用git –version查看是否成功 登录Github，新建项目，项目名称格式：账户名.github.io，并且勾选Initialize this repository with a README  在建好的项目右侧有个settings按钮，点击它，向下拉到GitHub">
@@ -104,14 +104,16 @@
 <p>发表博客</p>
 <ol start="11">
 <li>在blog路径下打开cmd窗口，执行命令：hexo new post “博客名”  ，在blog/source/_posts目录下将会创建一个文件《博客名.md》</li>
-<li>使用命令：hexo d -g，生成以及部署文章</li>
-<li>部署成功后访问你的地址：https://用户名.github.io。会看到生成的文章</li>
+<li>hexo g,生成博客的静态页面</li>
+<li>使用命令：hexo d ,将生成的博客静态页面上传到GitHub</li>
+<li>访问你的地址：https://用户名.github.io。会看到生成的文章</li>
+<li>hexo clean, 并执行hexo g, hexo d, 删除不要的文章。</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/12/使用hexo-github搭建博客/" data-id="cjvkyg9dc0001ccvk831cgfw5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/12/使用hexo-github搭建博客/" data-id="cjvkyo7ps0001okvk848sd9ou" class="article-share-link">Share</a>
       
       
     </footer>
