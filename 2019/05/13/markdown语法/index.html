@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/05/13/markdown语法/图片地址">
 <meta property="og:image" content="http://yoursite.com/images/155771927382939.gif">
-<meta property="og:updated_time" content="2019-05-13T08:04:24.905Z">
+<meta property="og:updated_time" content="2019-05-13T08:17:12.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="markdown语法">
 <meta name="twitter:description" content="Hexo下使用的MarkDown为Github的GFM。语法   分段：两个回车 换行：两个空格 + 回车   标题 # ~ ######，#号的个数表示几级标题，最多六级标题   一级标题二级标题三级标题四级标题五级标题六级标题强调 文字 ， 文字 ， _文字_ ， 文字 ， 文字字体 加粗 显示字体 斜体 显示字体 加粗并斜体 显示字体 加粗 显示字体 _斜体_ 显示字体 加粗并斜体 显示组合">
@@ -351,7 +351,33 @@
 <p><strong>标题</strong> # ~ ######，#号的个数表示几级标题，最多六级标题  </p>
 <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p><strong>强调</strong> <strong>文字</strong> ， <strong>文字</strong> ， _文字_ ， <em>文字</em> ， 文字<br>字体 <strong>加粗</strong> 显示<br>字体 <em>斜体</em> 显示<br>字体 <strong><em>加粗并斜体</em></strong> 显示<br>字体 <strong>加粗</strong> 显示<br>字体 _斜体_ 显示<br>字体 <strong><em>加粗并斜体</em></strong> 显示<br>组合 <em><strong>加粗并斜体</strong></em> 显示  </p>
 <p><strong>引用</strong> &gt; 注意后面紧跟个空格  </p>
-<p><strong>表格</strong> - 和 | 分割行和列 ， : 控制对其方式<br>| 左对齐    |  右对齐 | 居中 |<br>| :——– | ——-:| :–: |<br>| Computer  | 5000 元 |  1台 |<br>| Phone     | 1999 元 |  1部 |  </p>
+<p><strong>表格</strong> - 和 | 分割行和列 ， : 控制对其方式</p>
+<table>
+<thead>
+<tr>
+<th>列1</th>
+<th>列2</th>
+<th>列3  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第1行</td>
+<td>12</td>
+<td>13  </td>
+</tr>
+<tr>
+<td>第2行</td>
+<td>22</td>
+<td>23  </td>
+</tr>
+<tr>
+<td>第3行</td>
+<td>32</td>
+<td>33   </td>
+</tr>
+</tbody>
+</table>
 <p><strong>代码块</strong> 四个空格 开头，或使用<code>代码内容</code></p>
 <pre><code class="//代码块放置于3个反引号中间，回车即可换行">#include&lt;stdio.h&gt;
 int main()
