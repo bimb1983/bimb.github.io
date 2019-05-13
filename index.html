@@ -351,7 +351,7 @@
 <p><strong>标题</strong> # ~ ######，#号的个数表示几级标题，最多六级标题  </p>
 <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p><strong>强调</strong> <strong>文字</strong> ， <strong>文字</strong> ， _文字_ ， <em>文字</em> ， 文字<br>字体 <strong>加粗</strong> 显示<br>字体 <em>斜体</em> 显示<br>字体 <strong><em>加粗并斜体</em></strong> 显示<br>字体 <strong>加粗</strong> 显示<br>字体 _斜体_ 显示<br>字体 <strong><em>加粗并斜体</em></strong> 显示<br>组合 <em><strong>加粗并斜体</strong></em> 显示  </p>
 <p><strong>引用</strong> &gt; 注意后面紧跟个空格  </p>
-<p><strong>表格</strong> - 和 | 分割行和列 ， : 控制对其方式  </p>
+<p><strong>表格</strong> - 和 | 分割行和列 ， : 控制对其方式，表格的上一句必须换行  </p>
 <table>
 <thead>
 <tr>
@@ -377,14 +377,14 @@
 <pre><code class="//代码块放置于3个反引号中间，回车即可换行">#include&lt;stdio.h&gt;
 int main()
 {
-    printf(&quot;Hello World!\n&quot;);
+    printf(&quot;Hello hexo!&quot;);
     return 0;
 }
 
 </code></pre>
 <p><strong>链接</strong> <a href="链接地址">文字</a><br><a href="https://bimb1983.github.io/" target="_blank" rel="noopener">首页</a><br><a href="/about/">我的信息</a>  </p>
-<p><strong>图片</strong> <img src="图片地址" alt="图片说明"> ，地址可以是本地路劲，也可以是网络地址<br><img src="/images/155771927382939.gif" alt="我的头像">  </p>
-<p><strong>列表</strong>： * ， + ， - ， 1. ，选其中之一，注意后面紧跟个空格<br><strong>1. 无序列表</strong>  </p>
+<p><strong>图片</strong> <img src="图片地址" alt="图片说明">,地址可以是本地路径，也可以是网络地址<br><img src="/images/155771927382939.gif" alt="我的头像">  </p>
+<p><strong>列表</strong>： * ， + ， - ， 1. ，选其中之一，后面需要跟一个空格<br><strong>1. 无序列表</strong>  </p>
 <ul>
 <li>*列表展示  </li>
 <li>*列表展示  <ul>
@@ -402,10 +402,11 @@ int main()
 <ul>
 <li>-列表展示  </li>
 <li>-列表展示  <ul>
-<li>-列表展示<br><strong>2. 有序列表</strong> 这种方式不用手动设置序号，自动生成列表序列  </li>
+<li>-列表展示  </li>
 </ul>
 </li>
 </ul>
+<p><strong>2. 有序列表</strong> 这种方式不用手动设置序号，自动生成列表序列  </p>
 <ol>
 <li><strong>我是一级序列</strong>  </li>
 <li><strong>我是一级序列</strong>  </li>
@@ -424,8 +425,7 @@ int main()
 </li>
 </ol>
 <p><strong>删除线</strong><br><del>删除一段文本</del>  </p>
-<p><strong>高亮</strong><br>使用<code>`</code>来强调字符   //想打出  <code>(反引号)需要转义的，加&lt;code&gt;&lt;/code&gt;标签强调
-比如</code>突出背景色`来显示强调效果  </p>
+<p><strong>高亮</strong><br>使用<code>`</code>来强调字符   //想打出   (反引号)需要转义的，加<code></code>标签强调<br>比如<code>突出背景色</code>来显示强调效果  </p>
 <p><strong>嵌套使用</strong></p>
 <blockquote>
 <p>动物</p>
