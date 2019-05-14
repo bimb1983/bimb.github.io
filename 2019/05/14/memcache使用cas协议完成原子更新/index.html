@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="memcache,cas,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Enjoy time">
-<meta property="og:type" content="website">
-<meta property="og:title" content="加菲猫">
-<meta property="og:url" content="http://yoursite.com/categories/搭建博客/index.html">
+<meta name="description" content="Memcached通过cas协议实现原子更新，所谓cas就是compare and set。原理类似乐观锁，每次请求存储某个数据同时要附带一个cas值， memcached比对这个cas值与当前存储数据的cas值是否相等，如果相等就让新的数据覆盖老的数据，如果不相等就不更新，这在并发环境下特别有用。">
+<meta name="keywords" content="memcache,cas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="memcache使用cas协议完成原子更新">
+<meta property="og:url" content="http://yoursite.com/2019/05/14/memcache使用cas协议完成原子更新/index.html">
 <meta property="og:site_name" content="加菲猫">
-<meta property="og:description" content="Enjoy time">
+<meta property="og:description" content="Memcached通过cas协议实现原子更新，所谓cas就是compare and set。原理类似乐观锁，每次请求存储某个数据同时要附带一个cas值， memcached比对这个cas值与当前存储数据的cas值是否相等，如果相等就让新的数据覆盖老的数据，如果不相等就不更新，这在并发环境下特别有用。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-14T09:05:00.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="加菲猫">
-<meta name="twitter:description" content="Enjoy time">
+<meta name="twitter:title" content="memcache使用cas协议完成原子更新">
+<meta name="twitter:description" content="Memcached通过cas协议实现原子更新，所谓cas就是compare and set。原理类似乐观锁，每次请求存储某个数据同时要附带一个cas值， memcached比对这个cas值与当前存储数据的cas值是否相等，如果相等就让新的数据覆盖老的数据，如果不相等就不更新，这在并发环境下特别有用。">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/搭建博客/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/14/memcache使用cas协议完成原子更新/">
 
 
 
 
 
-  <title>分类: 搭建博客 | 加菲猫</title>
+  <title>memcache使用cas协议完成原子更新 | 加菲猫</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <a href="https://github.com/bimb1983"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
@@ -259,53 +261,171 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>搭建博客<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/14/memcache使用cas协议完成原子更新/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bimb">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/155771927382939.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="加菲猫">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/05/12/使用hexo-github搭建博客/" itemprop="url">
-              
-                <span itemprop="name">使用hexo+github搭建博客</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">memcache使用cas协议完成原子更新</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-12T20:21:23+08:00" content="2019-05-12">
-          05-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-14T17:01:29+08:00">
+                2019-05-14
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Memcached通过cas协议实现原子更新，所谓cas就是compare and set。原理类似乐观锁，每次请求存储某个数据同时要附带一个cas值， memcached比对这个cas值与当前存储数据的cas值是否相等，如果相等就让新的数据覆盖老的数据，如果不相等就不更新，这在并发环境下特别有用。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/memcache/" rel="tag"># memcache</a>
+          
+            <a href="/tags/cas/" rel="tag"># cas</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/14/拦截器原理及使用场景/" rel="next" title="拦截器原理及使用场景">
+                <i class="fa fa-chevron-left"></i> 拦截器原理及使用场景
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -313,6 +433,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -541,6 +665,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
