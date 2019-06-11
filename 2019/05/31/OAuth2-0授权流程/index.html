@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="mysql,">
+  <meta name="keywords" content="OAuth,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="执行mysql语句报错：Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)   原因：两张表字段collation不匹配 解决办法修改表字段字符集，保持2个表的字符集一致，修改方法：     ALTER TABLE tablename CHANGE columnname column">
-<meta name="keywords" content="mysql">
+<meta name="description" content="OAuth（开放授权）是一个开放标准，允许用户让第三方应用访问该用户在某一网站上存储的资源，而无需将用户名和密码提供给第三方应用。 OAuth允许用户提供一个令牌，而不是用户名和密码来访问他们存放在特定服务提供者的数据。 每一个令牌授权一个特定的网站（例如，视频编辑网站)在特定的时段（例如，接下来的2小时内）内访问特定的资源（例如仅仅是某一相册中的视频）。 这样，OAuth让用户可以授权第三方网站">
+<meta name="keywords" content="OAuth">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql字符集问题">
-<meta property="og:url" content="http://yoursite.com/2019/05/25/mysql字符集问题/index.html">
+<meta property="og:title" content="OAuth2.0授权流程">
+<meta property="og:url" content="http://yoursite.com/2019/05/31/OAuth2-0授权流程/index.html">
 <meta property="og:site_name" content="加菲猫">
-<meta property="og:description" content="执行mysql语句报错：Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)   原因：两张表字段collation不匹配 解决办法修改表字段字符集，保持2个表的字符集一致，修改方法：     ALTER TABLE tablename CHANGE columnname column">
+<meta property="og:description" content="OAuth（开放授权）是一个开放标准，允许用户让第三方应用访问该用户在某一网站上存储的资源，而无需将用户名和密码提供给第三方应用。 OAuth允许用户提供一个令牌，而不是用户名和密码来访问他们存放在特定服务提供者的数据。 每一个令牌授权一个特定的网站（例如，视频编辑网站)在特定的时段（例如，接下来的2小时内）内访问特定的资源（例如仅仅是某一相册中的视频）。 这样，OAuth让用户可以授权第三方网站">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-25T09:30:03.567Z">
+<meta property="og:updated_time" content="2019-05-31T09:25:45.297Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql字符集问题">
-<meta name="twitter:description" content="执行mysql语句报错：Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)   原因：两张表字段collation不匹配 解决办法修改表字段字符集，保持2个表的字符集一致，修改方法：     ALTER TABLE tablename CHANGE columnname column">
+<meta name="twitter:title" content="OAuth2.0授权流程">
+<meta name="twitter:description" content="OAuth（开放授权）是一个开放标准，允许用户让第三方应用访问该用户在某一网站上存储的资源，而无需将用户名和密码提供给第三方应用。 OAuth允许用户提供一个令牌，而不是用户名和密码来访问他们存放在特定服务提供者的数据。 每一个令牌授权一个特定的网站（例如，视频编辑网站)在特定的时段（例如，接下来的2小时内）内访问特定的资源（例如仅仅是某一相册中的视频）。 这样，OAuth让用户可以授权第三方网站">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/25/mysql字符集问题/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/31/OAuth2-0授权流程/">
 
 
 
 
 
-  <title>mysql字符集问题 | 加菲猫</title>
+  <title>OAuth2.0授权流程 | 加菲猫</title>
   
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/mysql字符集问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/OAuth2-0授权流程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bimb">
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mysql字符集问题</h1>
+          <h1 class="post-title" itemprop="name headline">OAuth2.0授权流程</h1>
         
 
         <div class="post-meta">
@@ -304,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T17:21:00+08:00">
-                2019-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T15:32:36+08:00">
+                2019-05-31
               </time>
             
 
@@ -327,8 +327,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
+                  <a href="/categories/安全认证/" itemprop="url" rel="index">
+                    <span itemprop="name">安全认证</span>
                   </a>
                 </span>
 
@@ -364,9 +364,74 @@
       
 
       
-        <p>执行mysql语句报错：Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)  </p>
-<p><strong>原因：</strong><br>两张表字段collation不匹配</p>
-<p><strong>解决办法</strong><br>修改表字段字符集，保持2个表的字符集一致，修改方法：<br>     ALTER TABLE tablename CHANGE columnname columnname VARCHAR(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL; </p>
+        <p>OAuth（开放授权）是一个开放标准，允许用户让第三方应用访问该用户在某一网站上存储的资源，而无需将用户名和密码提供给第三方应用。</p>
+<p>OAuth允许用户提供一个令牌，而不是用户名和密码来访问他们存放在特定服务提供者的数据。 每一个令牌授权一个特定的网站（例如，视频编辑网站)在特定的时段（例如，接下来的2小时内）内访问特定的资源（例如仅仅是某一相册中的视频）。 这样，OAuth让用户可以授权第三方网站访问他们存储在另外服务提供者的某些特定信息，而非所有内容。</p>
+<p><strong>名词定义</strong>  </p>
+<ol>
+<li>Third-party application：第三方应用程序，本文中又称”客户端”（client），这里是业务运营系统。  </li>
+<li>HTTP service：HTTP服务提供商，本文中简称”服务提供商”，比如GitHub。  </li>
+<li>Resource Owner：资源所有者，本文中又称”用户”（user）。  </li>
+<li>User Agent：用户代理，本文中就是指浏览器。  </li>
+<li>Authorization server：认证服务器，即服务提供商专门用来处理认证的服务器。  </li>
+<li>Resource server：资源服务器，即服务提供商存放用户生成的资源的服务器。它与认证服务器，可以是同一台服务器，也可以是不同的服务器。</li>
+</ol>
+<p><strong>客户端的授权模式</strong><br>客户端必须得到用户的授权（authorization grant），才能获得令牌（access token）。OAuth 2.0定义了四种授权方式：  </p>
+<ol>
+<li>授权码模式（authorization code）  </li>
+<li>简化模式（implicit）  </li>
+<li>密码模式（resource owner password credentials）  </li>
+<li>客户端模式（client credentials）</li>
+</ol>
+<p><strong>授权码模式详细步骤</strong> </p>
+<ol>
+<li>用户访问客户端，后者将前者导向认证服务器。  </li>
+<li>用户选择是否给予客户端授权。如果选”否”，整个授权流程结束。  </li>
+<li>假设用户给予授权，认证服务器将用户导向客户端事先指定的”重定向URI”（redirection URI），同时附上一个授权码。  </li>
+<li>客户端收到授权码，附上早先的”重定向URI”，向认证服务器申请令牌。  </li>
+<li>认证服务器核对了授权码和”重定向URI”，确认无误后，向客户端发送访问令牌（access token）和更新令牌（refresh token）。</li>
+</ol>
+<p><strong>第1步详解</strong><br>用户访问客户端，后者将前者导向认证服务器。<br>客户端申请认证的URI，包含以下参数：  </p>
+<ul>
+<li>response_type：表示授权类型，必选项，此处的值固定为”code”  </li>
+<li>client_id：表示客户端的ID，必选项  </li>
+<li>redirect_uri：表示重定向URI，可选项  </li>
+<li>scope：表示申请的权限范围，可选项  </li>
+<li>state：表示客户端的当前状态，可以指定任意值（最好是随机字符串），认证服务器会原封不动地返回这个值，可防止CSRF攻击</li>
+</ul>
+<p><strong>第2步详解</strong><br>用户选择是否给予客户端授权。如果选”否”，整个授权流程结束。<br>这一步其实就是引导用户登录认证服务器，查看获取的权限列表，点击同意授权按钮。 比如某个博客网站使用了畅言评论，它支持微信、QQ登录：</p>
+<p><strong>第3步详解</strong><br>假设用户给予授权，认证服务器将用户导向客户端事先指定的”重定向URI”（redirection URI），同时附上一个授权码。  </p>
+<p>服务器回应客户端的URI，包含以下参数：  </p>
+<ul>
+<li>code：表示授权码，必选项。该码的有效期应该很短，通常设为10分钟，客户端只能使用该码一次， 否则会被授权服务器拒绝。该码与客户端ID和重定向URI，是一一对应关系。  </li>
+<li>state：如果客户端的请求中包含这个参数，认证服务器的回应也必须一模一样包含这个参数。</li>
+</ul>
+<p><strong>第4步详解</strong><br>客户端收到授权码，附上早先的”重定向URI”，向认证服务器申请令牌。</p>
+<p>客户端向认证服务器申请令牌的HTTP请求，包含以下参数：  </p>
+<ul>
+<li>grant_type：表示使用的授权模式，必选项，此处的值固定为”authorization_code”。</li>
+<li>code：表示上一步获得的授权码，必选项。</li>
+<li>redirect_uri：表示重定向URI，必选项，且必须与A步骤中的该参数值保持一致。</li>
+<li>client_id：表示客户端ID，必选项。</li>
+<li>client_secret: 表示客户端密钥，必选项。</li>
+</ul>
+<p><strong>第5步详解</strong><br>认证服务器核对了授权码和”重定向URI”，确认无误后，向客户端发送访问令牌（access token）和更新令牌（refresh token）。</p>
+<p>认证服务器发送的HTTP回复，包含以下内容：  </p>
+<ul>
+<li>access_token：表示访问令牌，必选项。</li>
+<li>token_type：表示令牌类型，该值大小写不敏感，必选项，可以是bearer类型或mac类型。</li>
+<li>expires_in：表示过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>refresh_token：表示更新令牌，用来获取下一次的访问令牌，可选项。</li>
+<li>scope：表示权限范围，如果与客户端申请的范围一致，此项可省略。</li>
+</ul>
+<p><strong>场景介绍</strong><br>一台业务运营系统服务、一台认证服务器，用户访问业务运营系统，详细步骤如下：  </p>
+<ol>
+<li>用户在浏览器端访问运营系统地址  </li>
+<li>跳转到认证服务器登录地址，输入用户名和密码，并附上client_id、state、response_type、redirect_uri等参数  </li>
+<li>认证服务器认证成功，将用户导向客户端事先指定的”重定向URI”（运营系统登录地址），同时附上一个授权码  </li>
+<li>运营系统收到授权码，附上早先的”重定向URI”，向认证服务器申请令牌  </li>
+<li>认证服务器核对了授权码和”重定向URI”，确认无误后，向客户端发送访问令牌（access token）和更新令牌（refresh token）</li>
+</ol>
+<p><a href="https://www.xncoding.com/2017/03/29/security/oauth2.html" target="_blank" rel="noopener">参考</a></p>
 
       
     </div>
@@ -384,7 +449,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
+            <a href="/tags/OAuth/" rel="tag"># OAuth</a>
           
         </div>
       
@@ -397,8 +462,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/24/表单重复提交/" rel="next" title="表单重复提交">
-                <i class="fa fa-chevron-left"></i> 表单重复提交
+              <a href="/2019/05/30/nginx配置https/" rel="next" title="nginx配置https">
+                <i class="fa fa-chevron-left"></i> nginx配置https
               </a>
             
           </div>
@@ -407,8 +472,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/30/nginx配置https/" rel="prev" title="nginx配置https">
-                nginx配置https <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/11/docker组成详解/" rel="prev" title="docker组成详解">
+                docker组成详解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

@@ -274,6 +274,386 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/11/docker组成详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bimb">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/155771927382939.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="加菲猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/11/docker组成详解/" itemprop="url">docker组成详解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-11T14:39:32+08:00">
+                2019-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Docker 的核心组件包括：</strong>  </p>
+<ol>
+<li>Docker 客户端 - Client  </li>
+<li>Docker 服务器 - Docker daemon  </li>
+<li>Docker 镜像 - Image  </li>
+<li>Docker 注册中心 - Registry  </li>
+<li>Docker 容器 - Container（镜像的运行实例）</li>
+</ol>
+<p><strong>Docker 客户端</strong><br>最常用的 Docker 客户端是 docker 命令。通过 docker 我们可以方便地在 Host 上构建和运行容器。<br>除了 docker 命令行工具，也可以通过 socket 或 REST API 与远程的服务器通信。</p>
+<p><strong>Docker 服务器</strong><br>Docker daemon 是服务器组件, 运行在Docker host上，负责创建、运行、监控容器，构建、存储镜像。</p>
+<p><strong>Docker 镜像</strong><br>可将 Docker 镜像看着只读模板，通过它可以创建 Docker 容器。<br>例如某个镜像可能包含一个操作系统、一个 Apache HTTP Server 以及用户开发的 Web 应用。</p>
+<p><strong>Docker 容器</strong><br>Docker 容器是 Docker 镜像的运行实例。<br>用户可以通过 CLI（docker）或是 API 启动、停止、移动或删除容器。 可以这么认为，对于应用软件，镜像是软件生命周期的构建和打包阶段，而容器则是启动和运行阶段。<br>镜像是 Docker 容器的基石，容器是镜像的运行实例，有了镜像才能启动容器。</p>
+<p><strong>docker注册中心</strong><br>Registry 是存放 Docker 镜像的仓库，Registry 分私有和公有两种。<br>Docker Hub（<a href="https://hub.docker.com/）" target="_blank" rel="noopener">https://hub.docker.com/）</a> 是默认的 Registry，由 Docker 公司维护，上面有数以万计的镜像，用户可以自由下载和使用。<br>出于对速度或安全的考虑，用户也可以创建自己的私有 Registry。  </p>
+<ol>
+<li>docker pull 命令可以从 Registry 下载镜像。  </li>
+<li>docker run 命令则是先下载镜像（如果本地没有），然后再启动容器。</li>
+</ol>
+<p><strong>容器启动过程</strong><br>通过例子来演示一下各个组件协作过程：<br>docker run -d -p 8020:80 httpd  </p>
+<ol>
+<li>Docker 客户端执行 docker run 命令。  </li>
+<li>Docker daemon 发现本地没有 httpd 镜像。  </li>
+<li>daemon 从 Docker Hub 下载镜像。  </li>
+<li>下载完成，镜像 httpd 被保存到本地。  </li>
+<li>Docker daemon 启动容器。</li>
+</ol>
+<p><strong>docker常用命令</strong>  </p>
+<ol>
+<li>docker images 查看到已经下载到本地的镜像  </li>
+<li>docker ps 或者 docker container ls 显示正在运行的容器  </li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/OAuth2-0授权流程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bimb">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/155771927382939.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="加菲猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/31/OAuth2-0授权流程/" itemprop="url">OAuth2.0授权流程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T15:32:36+08:00">
+                2019-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/安全认证/" itemprop="url" rel="index">
+                    <span itemprop="name">安全认证</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>OAuth（开放授权）是一个开放标准，允许用户让第三方应用访问该用户在某一网站上存储的资源，而无需将用户名和密码提供给第三方应用。</p>
+<p>OAuth允许用户提供一个令牌，而不是用户名和密码来访问他们存放在特定服务提供者的数据。 每一个令牌授权一个特定的网站（例如，视频编辑网站)在特定的时段（例如，接下来的2小时内）内访问特定的资源（例如仅仅是某一相册中的视频）。 这样，OAuth让用户可以授权第三方网站访问他们存储在另外服务提供者的某些特定信息，而非所有内容。</p>
+<p><strong>名词定义</strong>  </p>
+<ol>
+<li>Third-party application：第三方应用程序，本文中又称”客户端”（client），这里是业务运营系统。  </li>
+<li>HTTP service：HTTP服务提供商，本文中简称”服务提供商”，比如GitHub。  </li>
+<li>Resource Owner：资源所有者，本文中又称”用户”（user）。  </li>
+<li>User Agent：用户代理，本文中就是指浏览器。  </li>
+<li>Authorization server：认证服务器，即服务提供商专门用来处理认证的服务器。  </li>
+<li>Resource server：资源服务器，即服务提供商存放用户生成的资源的服务器。它与认证服务器，可以是同一台服务器，也可以是不同的服务器。</li>
+</ol>
+<p><strong>客户端的授权模式</strong><br>客户端必须得到用户的授权（authorization grant），才能获得令牌（access token）。OAuth 2.0定义了四种授权方式：  </p>
+<ol>
+<li>授权码模式（authorization code）  </li>
+<li>简化模式（implicit）  </li>
+<li>密码模式（resource owner password credentials）  </li>
+<li>客户端模式（client credentials）</li>
+</ol>
+<p><strong>授权码模式详细步骤</strong> </p>
+<ol>
+<li>用户访问客户端，后者将前者导向认证服务器。  </li>
+<li>用户选择是否给予客户端授权。如果选”否”，整个授权流程结束。  </li>
+<li>假设用户给予授权，认证服务器将用户导向客户端事先指定的”重定向URI”（redirection URI），同时附上一个授权码。  </li>
+<li>客户端收到授权码，附上早先的”重定向URI”，向认证服务器申请令牌。  </li>
+<li>认证服务器核对了授权码和”重定向URI”，确认无误后，向客户端发送访问令牌（access token）和更新令牌（refresh token）。</li>
+</ol>
+<p><strong>第1步详解</strong><br>用户访问客户端，后者将前者导向认证服务器。<br>客户端申请认证的URI，包含以下参数：  </p>
+<ul>
+<li>response_type：表示授权类型，必选项，此处的值固定为”code”  </li>
+<li>client_id：表示客户端的ID，必选项  </li>
+<li>redirect_uri：表示重定向URI，可选项  </li>
+<li>scope：表示申请的权限范围，可选项  </li>
+<li>state：表示客户端的当前状态，可以指定任意值（最好是随机字符串），认证服务器会原封不动地返回这个值，可防止CSRF攻击</li>
+</ul>
+<p><strong>第2步详解</strong><br>用户选择是否给予客户端授权。如果选”否”，整个授权流程结束。<br>这一步其实就是引导用户登录认证服务器，查看获取的权限列表，点击同意授权按钮。 比如某个博客网站使用了畅言评论，它支持微信、QQ登录：</p>
+<p><strong>第3步详解</strong><br>假设用户给予授权，认证服务器将用户导向客户端事先指定的”重定向URI”（redirection URI），同时附上一个授权码。  </p>
+<p>服务器回应客户端的URI，包含以下参数：  </p>
+<ul>
+<li>code：表示授权码，必选项。该码的有效期应该很短，通常设为10分钟，客户端只能使用该码一次， 否则会被授权服务器拒绝。该码与客户端ID和重定向URI，是一一对应关系。  </li>
+<li>state：如果客户端的请求中包含这个参数，认证服务器的回应也必须一模一样包含这个参数。</li>
+</ul>
+<p><strong>第4步详解</strong><br>客户端收到授权码，附上早先的”重定向URI”，向认证服务器申请令牌。</p>
+<p>客户端向认证服务器申请令牌的HTTP请求，包含以下参数：  </p>
+<ul>
+<li>grant_type：表示使用的授权模式，必选项，此处的值固定为”authorization_code”。</li>
+<li>code：表示上一步获得的授权码，必选项。</li>
+<li>redirect_uri：表示重定向URI，必选项，且必须与A步骤中的该参数值保持一致。</li>
+<li>client_id：表示客户端ID，必选项。</li>
+<li>client_secret: 表示客户端密钥，必选项。</li>
+</ul>
+<p><strong>第5步详解</strong><br>认证服务器核对了授权码和”重定向URI”，确认无误后，向客户端发送访问令牌（access token）和更新令牌（refresh token）。</p>
+<p>认证服务器发送的HTTP回复，包含以下内容：  </p>
+<ul>
+<li>access_token：表示访问令牌，必选项。</li>
+<li>token_type：表示令牌类型，该值大小写不敏感，必选项，可以是bearer类型或mac类型。</li>
+<li>expires_in：表示过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>refresh_token：表示更新令牌，用来获取下一次的访问令牌，可选项。</li>
+<li>scope：表示权限范围，如果与客户端申请的范围一致，此项可省略。</li>
+</ul>
+<p><strong>场景介绍</strong><br>一台业务运营系统服务、一台认证服务器，用户访问业务运营系统，详细步骤如下：  </p>
+<ol>
+<li>用户在浏览器端访问运营系统地址  </li>
+<li>跳转到认证服务器登录地址，输入用户名和密码，并附上client_id、state、response_type、redirect_uri等参数  </li>
+<li>认证服务器认证成功，将用户导向客户端事先指定的”重定向URI”（运营系统登录地址），同时附上一个授权码  </li>
+<li>运营系统收到授权码，附上早先的”重定向URI”，向认证服务器申请令牌  </li>
+<li>认证服务器核对了授权码和”重定向URI”，确认无误后，向客户端发送访问令牌（access token）和更新令牌（refresh token）</li>
+</ol>
+<p><a href="https://www.xncoding.com/2017/03/29/security/oauth2.html" target="_blank" rel="noopener">参考</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/nginx配置https/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1528,154 +1908,13 @@ int main()
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/使用hexo-github搭建博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bimb">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/155771927382939.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加菲猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/12/使用hexo-github搭建博客/" itemprop="url">使用hexo+github搭建博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T20:21:23+08:00">
-                2019-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/搭建博客/" itemprop="url" rel="index">
-                    <span itemprop="name">搭建博客</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>hexo坏境搭建</p>
-<p>安装并配置node.js坏境，打开cmd，用node -v和npm -v查看是否成功<br>安装并配置git坏境，用git –version查看是否成功<br>登录Github，新建项目，项目名称格式：账户名.github.io，并且勾选Initialize this repository with a README<br>在建好的项目右侧有个settings按钮，点击它，向下拉到GitHub Pages，有个网址，可以通过外网来访问。<br>安装Hexo：创建一个blog文件夹，然后通过命令行进入到该文件夹里面。<br>4.1 输入npm install hexo -g，开始安装Hexo<br>4.2 输入hexo -v，检查hexo是否安装成功<br>4.3 输入hexo init，初始化该文件夹, 这里要注意blog文件夹必须是空的，否则会报错。看到“Start blogging with Hexo！” 就成功了！<br>4.4 输入npm install，安装所需要的组件<br>4.5 输入hexo g，首次体验Hexo<br>4.6 输入hexo s，开启服务器，访问该网址，正式体验Hexo<br>关联github</p>
-<p>将Hexo与Github page联系起来，设置Git的user name和email（如果没有设置过的话）<br>git config –global user.name “bimb1983”<br>git config –global user.email “<a href="mailto:xxx@sina.com" target="_blank" rel="noopener">xxx@sina.com</a>“<br>生成ssh key<br>登录github， 点击头像下方的settings，添加ssh key，将id_rsa.pub文件里的内容复制上去<br>在本地ssh命令窗口，输入ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，再输入yes。如果看到Hi后面是你的用户名，就说明成功了。<br>配置Deployment，在blog文件夹中，找到_config.yml文件，修改repo值<br>deploy:<br>type: git<br>repository: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:bimb1983/bimb1983.github.io.git<br>branch: master<br>10 在生成以及部署文章之前，需要安装一个扩展：npm install hexo-deployer-git –save<br>发表博客</p>
-<p>在blog路径下打开cmd窗口，执行命令：hexo new post “博客名” ，在blog/source/_posts目录下将会创建一个文件《博客名.md》<br>hexo g,生成博客的静态页面<br>使用命令：hexo d ,将生成的博客静态页面上传到GitHub<br>访问你的地址：https://用户名.github.io。会看到生成的文章<br>hexo clean, 并执行hexo g, hexo d, 删除不要的文章。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1721,7 +1960,7 @@ int main()
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1732,7 +1971,7 @@ int main()
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1743,7 +1982,7 @@ int main()
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
