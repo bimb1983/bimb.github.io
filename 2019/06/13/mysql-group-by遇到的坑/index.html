@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="如果数据库不存在满足条件的数据，返回的结果为空    SELECT 1 FROM loan l  WHERE 1=2 如果数据库不存在满足条件的数据，用count函数统计出来的结果是0    SELECT COUNT(*) FROM loan l  WHERE 1=2 如果数据库不存在满足条件的数据，用count函数统计出来的结果再用group by分组函数，出来的结果是空    SELECT C">
+<meta name="description" content="如果数据库不存在满足条件的数据，返回的结果为空1 FROM loan l  WHERE 1123如果数据库不存在满足条件的数据，用count函数统计出来的结果是0  ``` SELECT COUNT(*) FROM loan l  WHERE 1=2 如果数据库不存在满足条件的数据，用count函数统计出来的结果再用group by分组函数，出来的结果是空SELECT COUNT(*) FROM">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql 结果集0和null的区别">
 <meta property="og:url" content="http://yoursite.com/2019/06/13/mysql-group-by遇到的坑/index.html">
 <meta property="og:site_name" content="加菲猫">
-<meta property="og:description" content="如果数据库不存在满足条件的数据，返回的结果为空    SELECT 1 FROM loan l  WHERE 1=2 如果数据库不存在满足条件的数据，用count函数统计出来的结果是0    SELECT COUNT(*) FROM loan l  WHERE 1=2 如果数据库不存在满足条件的数据，用count函数统计出来的结果再用group by分组函数，出来的结果是空    SELECT C">
+<meta property="og:description" content="如果数据库不存在满足条件的数据，返回的结果为空1 FROM loan l  WHERE 1123如果数据库不存在满足条件的数据，用count函数统计出来的结果是0  ``` SELECT COUNT(*) FROM loan l  WHERE 1=2 如果数据库不存在满足条件的数据，用count函数统计出来的结果再用group by分组函数，出来的结果是空SELECT COUNT(*) FROM">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-13T05:43:06.824Z">
+<meta property="og:updated_time" content="2019-06-13T05:44:50.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql 结果集0和null的区别">
-<meta name="twitter:description" content="如果数据库不存在满足条件的数据，返回的结果为空    SELECT 1 FROM loan l  WHERE 1=2 如果数据库不存在满足条件的数据，用count函数统计出来的结果是0    SELECT COUNT(*) FROM loan l  WHERE 1=2 如果数据库不存在满足条件的数据，用count函数统计出来的结果再用group by分组函数，出来的结果是空    SELECT C">
+<meta name="twitter:description" content="如果数据库不存在满足条件的数据，返回的结果为空1 FROM loan l  WHERE 1123如果数据库不存在满足条件的数据，用count函数统计出来的结果是0  ``` SELECT COUNT(*) FROM loan l  WHERE 1=2 如果数据库不存在满足条件的数据，用count函数统计出来的结果再用group by分组函数，出来的结果是空SELECT COUNT(*) FROM">
 
 
 
@@ -364,9 +364,8 @@
       
 
       
-        <p>如果数据库不存在满足条件的数据，返回的结果为空<br>    SELECT 1 FROM loan l  WHERE 1=2</p>
-<p>如果数据库不存在满足条件的数据，用count函数统计出来的结果是0<br>    SELECT COUNT(*) FROM loan l  WHERE 1=2</p>
-<p>如果数据库不存在满足条件的数据，用count函数统计出来的结果再用group by分组函数，出来的结果是空<br>    SELECT COUNT(*) FROM loan l  WHERE 1=2 GROUP BY l.customerId</p>
+        <p>如果数据库不存在满足条件的数据，返回的结果为空<br><figure class="highlight plain"><figcaption><span>1 FROM loan l  WHERE 1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果数据库不存在满足条件的数据，用count函数统计出来的结果是0  </span><br><span class="line">``` SELECT COUNT(*) FROM loan l  WHERE 1=2</span><br></pre></td></tr></table></figure></p>
+<p>如果数据库不存在满足条件的数据，用count函数统计出来的结果再用group by分组函数，出来的结果是空<br><code>SELECT COUNT(*) FROM loan l  WHERE 1=2 GROUP BY l.customerId</code></p>
 <p>在比较的时候，空结果集要跟null比较，不能跟0做比较。</p>
 
       
