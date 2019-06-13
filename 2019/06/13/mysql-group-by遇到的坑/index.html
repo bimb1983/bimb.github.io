@@ -79,21 +79,18 @@
 
 
 
-<meta name="description" content="如果数据库不存在满足条件的数据，用count函数统计出来的结果是0   如果数据库不存在满足条件的数据，再用group by分组函数，出来的结果是null 所以用这种group by之后的结果做判断的时候要跟null比较，不能跟0比较，否则比较结果就不对。">
+<meta name="description" content="如果数据库不存在满足条件的数据，用count函数统计出来的结果是0    SELECT (SELECT COUNT(*) FROM loan l  WHERE 1=2) result FROM DUAL  如果数据库不存在满足条件的数据，再用group by分组函数，出来的结果是null    SELECT (SELECT COUNT(*) FROM loan l  WHERE 1=2 GROUP">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql group by遇到的坑">
 <meta property="og:url" content="http://yoursite.com/2019/06/13/mysql-group-by遇到的坑/index.html">
 <meta property="og:site_name" content="加菲猫">
-<meta property="og:description" content="如果数据库不存在满足条件的数据，用count函数统计出来的结果是0   如果数据库不存在满足条件的数据，再用group by分组函数，出来的结果是null 所以用这种group by之后的结果做判断的时候要跟null比较，不能跟0比较，否则比较结果就不对。">
+<meta property="og:description" content="如果数据库不存在满足条件的数据，用count函数统计出来的结果是0    SELECT (SELECT COUNT(*) FROM loan l  WHERE 1=2) result FROM DUAL  如果数据库不存在满足条件的数据，再用group by分组函数，出来的结果是null    SELECT (SELECT COUNT(*) FROM loan l  WHERE 1=2 GROUP">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/gr8zRMS.png">
-<meta property="og:image" content="https://i.imgur.com/zNb4Ym3.png">
-<meta property="og:updated_time" content="2019-06-13T04:11:01.213Z">
+<meta property="og:updated_time" content="2019-06-13T04:25:05.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql group by遇到的坑">
-<meta name="twitter:description" content="如果数据库不存在满足条件的数据，用count函数统计出来的结果是0   如果数据库不存在满足条件的数据，再用group by分组函数，出来的结果是null 所以用这种group by之后的结果做判断的时候要跟null比较，不能跟0比较，否则比较结果就不对。">
-<meta name="twitter:image" content="https://i.imgur.com/gr8zRMS.png">
+<meta name="twitter:description" content="如果数据库不存在满足条件的数据，用count函数统计出来的结果是0    SELECT (SELECT COUNT(*) FROM loan l  WHERE 1=2) result FROM DUAL  如果数据库不存在满足条件的数据，再用group by分组函数，出来的结果是null    SELECT (SELECT COUNT(*) FROM loan l  WHERE 1=2 GROUP">
 
 
 
@@ -367,8 +364,8 @@
       
 
       
-        <p>如果数据库不存在满足条件的数据，用count函数统计出来的结果是0<br><img src="https://i.imgur.com/gr8zRMS.png" alt="结果">  </p>
-<p>如果数据库不存在满足条件的数据，再用group by分组函数，出来的结果是null<br><img src="https://i.imgur.com/zNb4Ym3.png" alt="结果"></p>
+        <p>如果数据库不存在满足条件的数据，用count函数统计出来的结果是0<br>    SELECT (SELECT COUNT(*) FROM loan l  WHERE 1=2) result FROM DUAL </p>
+<p>如果数据库不存在满足条件的数据，再用group by分组函数，出来的结果是null<br>    SELECT (SELECT COUNT(*) FROM loan l  WHERE 1=2 GROUP BY l.customerId) FROM DUAL</p>
 <p>所以用这种group by之后的结果做判断的时候要跟null比较，不能跟0比较，否则比较结果就不对。</p>
 
       

@@ -367,8 +367,8 @@
       
         
           
-            <p>如果数据库不存在满足条件的数据，用count函数统计出来的结果是0<br><img src="https://i.imgur.com/gr8zRMS.png" alt="结果">  </p>
-<p>如果数据库不存在满足条件的数据，再用group by分组函数，出来的结果是null<br><img src="https://i.imgur.com/zNb4Ym3.png" alt="结果"></p>
+            <p>如果数据库不存在满足条件的数据，用count函数统计出来的结果是0<br>    SELECT (SELECT COUNT(*) FROM loan l  WHERE 1=2) result FROM DUAL </p>
+<p>如果数据库不存在满足条件的数据，再用group by分组函数，出来的结果是null<br>    SELECT (SELECT COUNT(*) FROM loan l  WHERE 1=2 GROUP BY l.customerId) FROM DUAL</p>
 <p>所以用这种group by之后的结果做判断的时候要跟null比较，不能跟0比较，否则比较结果就不对。</p>
 
           
