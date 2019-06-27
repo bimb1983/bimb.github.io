@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="docker,">
+  <meta name="keywords" content="Spring boot,maven,profile,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Dockerfile 中最常用的指令FROM指定 base 镜像   MAINTAINER设置镜像的作者，可以是任意字符串。   COPY将文件从 build context 复制到镜像。COPY 支持两种形式：    COPY src dest   COPY [“src”, “dest”]src 只能指定 build context 中的文件或目录。如果dest在容器中不存在，会被自动创建">
-<meta name="keywords" content="docker">
+<meta name="description" content="一般在开发项目的时候有多个环境，如开发环境、测试环境、生产环境，对应的配置文件一般不同。当我们要向各个环境发布程序时，如果人工处理这些配置文件，麻烦且易错。有了profile，只要在maven打包时使用下面命令即可clean package -DskipTests -Pprod ```  1234567891011121314151617181920212223242526272829303132">
+<meta name="keywords" content="Spring boot,maven,profile">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dockerfile">
-<meta property="og:url" content="http://yoursite.com/2019/06/11/dockerfile/index.html">
+<meta property="og:title" content="集成maven和Spring boot的profile功能">
+<meta property="og:url" content="http://yoursite.com/2019/06/27/集成maven和Spring-boot的profile功能/index.html">
 <meta property="og:site_name" content="加菲猫">
-<meta property="og:description" content="Dockerfile 中最常用的指令FROM指定 base 镜像   MAINTAINER设置镜像的作者，可以是任意字符串。   COPY将文件从 build context 复制到镜像。COPY 支持两种形式：    COPY src dest   COPY [“src”, “dest”]src 只能指定 build context 中的文件或目录。如果dest在容器中不存在，会被自动创建">
+<meta property="og:description" content="一般在开发项目的时候有多个环境，如开发环境、测试环境、生产环境，对应的配置文件一般不同。当我们要向各个环境发布程序时，如果人工处理这些配置文件，麻烦且易错。有了profile，只要在maven打包时使用下面命令即可clean package -DskipTests -Pprod ```  1234567891011121314151617181920212223242526272829303132">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-11T08:22:59.663Z">
+<meta property="og:updated_time" content="2019-06-27T02:54:57.336Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dockerfile">
-<meta name="twitter:description" content="Dockerfile 中最常用的指令FROM指定 base 镜像   MAINTAINER设置镜像的作者，可以是任意字符串。   COPY将文件从 build context 复制到镜像。COPY 支持两种形式：    COPY src dest   COPY [“src”, “dest”]src 只能指定 build context 中的文件或目录。如果dest在容器中不存在，会被自动创建">
+<meta name="twitter:title" content="集成maven和Spring boot的profile功能">
+<meta name="twitter:description" content="一般在开发项目的时候有多个环境，如开发环境、测试环境、生产环境，对应的配置文件一般不同。当我们要向各个环境发布程序时，如果人工处理这些配置文件，麻烦且易错。有了profile，只要在maven打包时使用下面命令即可clean package -DskipTests -Pprod ```  1234567891011121314151617181920212223242526272829303132">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/11/dockerfile/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/27/集成maven和Spring-boot的profile功能/">
 
 
 
 
 
-  <title>dockerfile | 加菲猫</title>
+  <title>集成maven和Spring boot的profile功能 | 加菲猫</title>
   
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/11/dockerfile/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/27/集成maven和Spring-boot的profile功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bimb">
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">dockerfile</h1>
+          <h1 class="post-title" itemprop="name headline">集成maven和Spring boot的profile功能</h1>
         
 
         <div class="post-meta">
@@ -304,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-11T15:37:31+08:00">
-                2019-06-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-27T10:35:37+08:00">
+                2019-06-27
               </time>
             
 
@@ -327,8 +327,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
+                  <a href="/categories/Spring-boot/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring boot</span>
                   </a>
                 </span>
 
@@ -364,32 +364,7 @@
       
 
       
-        <p><strong> Dockerfile 中最常用的指令</strong><br><strong>FROM</strong><br>指定 base 镜像  </p>
-<p><strong>MAINTAINER</strong><br>设置镜像的作者，可以是任意字符串。  </p>
-<p><strong>COPY</strong><br>将文件从 build context 复制到镜像。<br>COPY 支持两种形式：  </p>
-<ol>
-<li>COPY src dest  </li>
-<li>COPY [“src”, “dest”]<br>src 只能指定 build context 中的文件或目录。如果dest在容器中不存在，会被自动创建</li>
-</ol>
-<p><strong>ADD</strong><br>与 COPY 类似，从 build context 复制文件到镜像。 不同的是，如果 src 是归档文件（tar, zip, tgz, xz 等），文件会被自动解压到 dest。</p>
-<p><strong>ENV</strong><br>设置环境变量，环境变量可被后面的指令使用。例如：<br>ENV TZ=Asia/Shanghai<br>RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone</p>
-<p><strong>EXPOSE</strong><br>指定容器中的进程会监听的端口，Docker 可以将该端口暴露出来。</p>
-<p><strong>VOLUME</strong><br>将文件或目录声明为 volume。<br>Dockerfile中的VOLUME每次运行一个新的container时，都会为其自动创建一个匿名的volume，如果需要在不同container之间共享数据，那么我们依然需要通过docker run -it -v my-volume:/foo的方式将/foo中数据存放于指定的my-volume中。</p>
-<p><strong>WORKDIR</strong><br>为后面的 RUN, CMD, ENTRYPOINT, ADD 或 COPY 指令设置镜像中的当前工作目录。</p>
-<p><strong>RUN</strong><br>在容器中运行指定的命令。</p>
-<p><strong>CMD</strong><br>容器启动时运行指定的命令。<br>Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效。CMD 可以被 docker run 之后的参数替换。</p>
-<p><strong>ENTRYPOINT</strong><br>设置容器启动时运行的命令。<br>Dockerfile 中可以有多个 ENTRYPOINT 指令，但只有最后一个生效。 CMD 或 docker run 之后的参数会被当做参数传递给 ENTRYPOINT。</p>
-<p><strong>RUN、CMD 和 ENTRYPOINT</strong>  </p>
-<ol>
-<li>RUN 执行命令并创建新的镜像层，RUN 经常用于安装软件包。  </li>
-<li>CMD 设置容器启动后默认执行的命令及其参数，但 CMD 能够被 docker run 后面跟的命令行参数替换。  </li>
-<li>ENTRYPOINT 配置容器启动时运行的命令。</li>
-</ol>
-<p>我们可用两种方式指定 RUN、CMD 和 ENTRYPOINT 要运行的命令：Shell 格式和 Exec 格式， 二者在使用上有细微的区别。</p>
-<p>Shell 格式:</p>
-<p>RUN apt-get install python3<br>CMD echo “Hello world”<br>ENTRYPOINT echo “Hello world”<br>当指令执行时，shell 格式底层会调用 /bin/sh -c <command></p>
-<p>Exec 格式：</p>
-<p>RUN [“apt-get”, “install”, “python3”]<br>CMD [“/bin/echo”, “Hello world”]<br>ENTRYPOINT [“/bin/echo”, “Hello world”]<br>当指令执行时，会直接调用 ，不会被 shell 解析。</p>
+        <p>一般在开发项目的时候有多个环境，如开发环境、测试环境、生产环境，对应的配置文件一般不同。当我们要向各个环境发布程序时，如果人工处理这些配置文件，麻烦且易错。有了profile，只要在maven打包时使用下面命令即可<br><figure class="highlight plain"><figcaption><span>clean package -DskipTests -Pprod ```  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">-Pprod 就是告诉maven要使用名字为prod的profile来打包，即所有的配置文件都使用生产环境（prod是自己定义的，在这里自定义为生产环境）</span><br><span class="line"></span><br><span class="line">**配置方法**  </span><br><span class="line">* 在application.properties文件中指定spring.profiles.active=@profileActive@</span><br><span class="line">* maven pom.xml文件配置profiles属性  </span><br><span class="line">``` &lt;profiles&gt;</span><br><span class="line">        &lt;profile&gt;</span><br><span class="line">            &lt;id&gt;qa&lt;/id&gt;</span><br><span class="line">            &lt;properties&gt;</span><br><span class="line">                &lt;profileActive&gt;qa&lt;/profileActive&gt;</span><br><span class="line">            &lt;/properties&gt;</span><br><span class="line">        &lt;/profile&gt;</span><br><span class="line">        &lt;profile&gt;</span><br><span class="line">            &lt;id&gt;dev&lt;/id&gt;</span><br><span class="line">            &lt;activation&gt;</span><br><span class="line">                &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;</span><br><span class="line">            &lt;/activation&gt;</span><br><span class="line">            &lt;properties&gt;</span><br><span class="line">                &lt;profileActive&gt;dev&lt;/profileActive&gt;</span><br><span class="line">            &lt;/properties&gt;</span><br><span class="line">        &lt;/profile&gt;</span><br><span class="line">        &lt;profile&gt;</span><br><span class="line">            &lt;id&gt;prod1&lt;/id&gt;</span><br><span class="line">            &lt;properties&gt;</span><br><span class="line">                &lt;profileActive&gt;prod1&lt;/profileActive&gt;</span><br><span class="line">            &lt;/properties&gt;</span><br><span class="line">        &lt;/profile&gt;</span><br><span class="line">        &lt;profile&gt;</span><br><span class="line">            &lt;id&gt;prod2&lt;/id&gt;</span><br><span class="line">            &lt;properties&gt;</span><br><span class="line">                &lt;profileActive&gt;prod2&lt;/profileActive&gt;</span><br><span class="line">            &lt;/properties&gt;</span><br><span class="line">        &lt;/profile&gt;</span><br><span class="line">        &lt;profile&gt;</span><br><span class="line">            &lt;id&gt;stage&lt;/id&gt;</span><br><span class="line">            &lt;properties&gt;</span><br><span class="line">                &lt;profileActive&gt;stage&lt;/profileActive&gt;</span><br><span class="line">            &lt;/properties&gt;</span><br><span class="line">        &lt;/profile&gt;</span><br><span class="line">    &lt;/profiles&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -407,7 +382,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"># docker</a>
+            <a href="/tags/Spring-boot/" rel="tag"># Spring boot</a>
+          
+            <a href="/tags/maven/" rel="tag"># maven</a>
+          
+            <a href="/tags/profile/" rel="tag"># profile</a>
           
         </div>
       
@@ -420,8 +399,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/11/docker组成详解/" rel="next" title="docker组成详解">
-                <i class="fa fa-chevron-left"></i> docker组成详解
+              <a href="/2019/06/13/mysql 结果集0和null的区别/" rel="next" title="mysql 结果集0和null的区别">
+                <i class="fa fa-chevron-left"></i> mysql 结果集0和null的区别
               </a>
             
           </div>
@@ -429,10 +408,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/13/mysql 结果集0和null的区别/" rel="prev" title="mysql 结果集0和null的区别">
-                mysql 结果集0和null的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
