@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="概述如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示 区别jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。    在springMVC中返回是modelAndView的形式，将数据封装到model中，一般model中放置键值对的形式，值可以直接为对象">
+<meta name="description" content="概述如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示 区别jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。  jsp是页面先加载数据，html+ajax是页面后加载数据.用html+ajax的方式后加载数据会让搜索引擎获取不到这些内容，你的页面能呈现">
 <meta name="keywords" content="html,jsp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html和jsp的区别">
 <meta property="og:url" content="http://yoursite.com/2019/07/05/html和jsp的区别/index.html">
 <meta property="og:site_name" content="加菲猫">
-<meta property="og:description" content="概述如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示 区别jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。    在springMVC中返回是modelAndView的形式，将数据封装到model中，一般model中放置键值对的形式，值可以直接为对象">
+<meta property="og:description" content="概述如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示 区别jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。  jsp是页面先加载数据，html+ajax是页面后加载数据.用html+ajax的方式后加载数据会让搜索引擎获取不到这些内容，你的页面能呈现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-05T03:21:42.253Z">
+<meta property="og:updated_time" content="2019-07-05T05:43:38.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html和jsp的区别">
-<meta name="twitter:description" content="概述如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示 区别jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。    在springMVC中返回是modelAndView的形式，将数据封装到model中，一般model中放置键值对的形式，值可以直接为对象">
+<meta name="twitter:description" content="概述如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示 区别jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。  jsp是页面先加载数据，html+ajax是页面后加载数据.用html+ajax的方式后加载数据会让搜索引擎获取不到这些内容，你的页面能呈现">
 
 
 
@@ -365,7 +365,8 @@
 
       
         <p><strong>概述</strong><br>如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示</p>
-<p><strong>区别</strong><br>jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。  </p>
+<p><strong>区别</strong><br>jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。 </p>
+<p>jsp是页面先加载数据，html+ajax是页面后加载数据.用html+ajax的方式后加载数据会让搜索引擎获取不到这些内容，你的页面能呈现的只是那些静态的内容，无论你ajax获取的数据有多不同，有多少个页面，对于搜索引擎来说那就是一个页面，因为呈现的内容是一样的。  </p>
 <ol>
 <li>在springMVC中返回是modelAndView的形式，将数据封装到model中，一般model中放置键值对的形式，值可以直接为对象本身，此时在jsp中${}可以直接获取  </li>
 <li>如果使用html，在springMVC中需要返回实体，在方法上加注解@ResponseBody返回json字符串,然后在ajax中通过data获取json数据</li>
@@ -386,6 +387,27 @@
 <li>开发难度大，考虑浏览器的兼容性 </li>
 <li>页面请求过多 </li>
 <li>属于后加载，无法被爬虫爬到</li>
+</ol>
+<p><strong>使用jsp的痛点：</strong>  </p>
+<ol>
+<li>动态资源和静态资源全部耦合在一起，无法做到真正的动静分离。服务器压力大，因为服务器会收到各种http请求，例如css的http请求，js的，图片的，动态代码的等等。一旦服务器出现状况，前后台一起玩完，用户体验极差。</li>
+<li>jsp必须要在支持java的web服务器里运行（例如tomcat等，无法使用nginx等（nginx据说单实例http并发高达5w，这个优势），性能提不上来。</li>
+<li>第一次请求jsp，必须要在web服务器中编译成servlet，第一次运行会较慢。</li>
+<li>每次请求jsp都是访问servlet再用输出流输出的html页面，效率没有直接使用html高。</li>
+<li>如果jsp中的内容很多，页面响应会很慢，因为是同步加载。  </li>
+</ol>
+<p><strong>jsp请求方式：</strong>  </p>
+<ol>
+<li>客户端请求  </li>
+<li>服务端的servlet或controller接收请求（路由规则由后端制定，整个项目开发的权重大部分在后端）  </li>
+<li>调用service,dao代码完成业务逻辑<br>4.返回jsp<br>5.jsp展现一些动态的代码  </li>
+</ol>
+<p><strong>html请求方式：</strong></p>
+<ol>
+<li>浏览器发送请求  </li>
+<li>直接到达html页面（路由规则由前端制定，整个项目开发的权重前移）  </li>
+<li>html页面负责调用服务端接口产生数据（通过ajax等等）</li>
+<li>填充html，展现动态效果。<br><strong>这样做的好处是：</strong><br>1.可以实现真正的前后端解耦，前端服务器使用nginx。<br>前端服务器放的是css，js，图片等等一系列静态资源（甚至你还可以css，js，图片等资源放到特定的文件服务器，例如阿里云的oss，并使用cdn加速），前端服务器负责控制页面引用，跳转，调用后端的接口，后端服务器使用tomcat。（这里需要使用一些前端工程化的框架比如nodejs，react，router，react，redux，webpack）<br>2.发现bug，可以快速定位是谁的问题，不会出现互相踢皮球的现象。<br>页面逻辑，跳转错误，浏览器兼容性问题，脚本错误，页面样式等问题，全部由前端工程师来负责。<br>接口数据出错，数据没有提交成功，应答超时等问题，全部由后端工程师来解决。<br>3.在大并发情况下，可以同时水平扩展前后端服务器，比如淘宝的一个首页就需要2000台前端服务器做集群来抗住日均多少亿+的日均pv。<br>4.减少后端服务器的并发压力，除了接口以外的其他所有http请求全部转移到前端nginx上。<br>5.即使后端服务暂时超时或者宕机了，前端页面也会正常访问，只不过数据刷不出来而已。<br>6.也许你也需要有微信相关的轻应用，那样你的接口完全可以共用，如果也有app相关的服务，那么只要通过一些代码重构，也可以大量复用接口，提升效率。<br>7.页面显示的东西再多也不怕，因为是异步加载。</li>
 </ol>
 
       
