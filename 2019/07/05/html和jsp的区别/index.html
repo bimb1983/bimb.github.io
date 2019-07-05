@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="html,jsp,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Enjoy time">
+<meta name="description" content="概述如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示 区别jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。    在springMVC中返回是modelAndView的形式，将数据封装到model中，一般model中放置键值对的形式，值可以直接为对象">
+<meta name="keywords" content="html,jsp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html和jsp的区别">
 <meta property="og:url" content="http://yoursite.com/2019/07/05/html和jsp的区别/index.html">
 <meta property="og:site_name" content="加菲猫">
-<meta property="og:description" content="Enjoy time">
+<meta property="og:description" content="概述如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示 区别jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。    在springMVC中返回是modelAndView的形式，将数据封装到model中，一般model中放置键值对的形式，值可以直接为对象">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-05T03:05:58.027Z">
+<meta property="og:updated_time" content="2019-07-05T03:21:42.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html和jsp的区别">
-<meta name="twitter:description" content="Enjoy time">
+<meta name="twitter:description" content="概述如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示 区别jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。    在springMVC中返回是modelAndView的形式，将数据封装到model中，一般model中放置键值对的形式，值可以直接为对象">
 
 
 
@@ -314,6 +315,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -341,7 +364,30 @@
       
 
       
-        
+        <p><strong>概述</strong><br>如果app开发抛开原生，使用h5方式，html和jsp没有本质的区别，jsp最终还是转化成html在前端展示</p>
+<p><strong>区别</strong><br>jsp可以直接通过${}标签获取后台返回的java对象，html需要通过ajax请求获取后台返回的json字符串数据，再加载到页面标签上。  </p>
+<ol>
+<li>在springMVC中返回是modelAndView的形式，将数据封装到model中，一般model中放置键值对的形式，值可以直接为对象本身，此时在jsp中${}可以直接获取  </li>
+<li>如果使用html，在springMVC中需要返回实体，在方法上加注解@ResponseBody返回json字符串,然后在ajax中通过data获取json数据</li>
+</ol>
+<p><strong>jsp优缺点</strong><br><strong>优点</strong>  </p>
+<ol>
+<li>可被爬虫爬到</li>
+<li>减少请求次数</li>
+<li>不用考虑浏览器的兼容性<br><strong>缺点</strong>  </li>
+<li>前端与后端未脱离，拖慢开发进度</li>
+<li>依赖java运行环境</li>
+</ol>
+<p><strong>html优缺点</strong><br><strong>优点</strong>  </p>
+<ol>
+<li>开发过程中前端与后端脱离，交互通过JSON传输来实现</li>
+<li>跨平台能力更强，依托于浏览器的支持</li>
+<li>使后台数据接口能够得到复用<br><strong>缺点</strong>  </li>
+<li>开发难度大，考虑浏览器的兼容性 </li>
+<li>页面请求过多 </li>
+<li>属于后加载，无法被爬虫爬到</li>
+</ol>
+
       
     </div>
     
@@ -355,6 +401,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+            <a href="/tags/jsp/" rel="tag"># jsp</a>
+          
+        </div>
       
 
       
@@ -454,7 +508,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -465,7 +519,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
