@@ -274,6 +274,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/31/微信公众号开发-配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bimb">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/155771927382939.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="加菲猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/31/微信公众号开发-配置/" itemprop="url">微信公众号开发-配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-31T09:00:00+08:00">
+                2019-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微信公众号/" itemprop="url" rel="index">
+                    <span itemprop="name">微信公众号</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>ip白名单配置</strong><br>目的：<br>在IP白名单内的IP来源，获取access_token接口才可调用成功<br>配置方法：<br>登录公众平台-&gt;基本配置-&gt;IP白名单, 添加自己的ip  </p>
+<p><strong>服务器配置</strong><br>目的：<br>填写接口配置信息，正确响应微信发送的Token验证<br>配置方法：<br>登录公众平台-&gt;基本配置-&gt;服务器配置，填写自己的用来验证微信发送的Token的服务器接口地址。  </p>
+<p>该接口的get方法需要实现微信要求的token验证机制，验证通过后返回微信发送的随机字符串echostr；<br>新用户关注公众号或者老用户扫描公众号二维码，给公众号发消息，该接口的post方法会收到通知，收到通知后可以实现自己的业务逻辑，如果5秒内处理不完，需要先回复消息给微信。</p>
+<p><strong>网页授权域名配置</strong><br>目的：<br>用户在网页授权页同意授权给公众号后，微信会将授权数据传给一个回调页面，回调页面需在此域名下，以确保安全可靠<br>配置方法：<br>登录公众平台-&gt;公众号设置-&gt;网页授权域名,将公众平台提供的文件上传至填写域名指向的web服务器（或虚拟主机）的目录（若填写域名，将文件放置在域名根目录下，例如wx.qq.com/MP_verify_Mpvve3JGYQHP7mbm.txt；若填写路径，将文件放置在路径目录下，例如wx.qq.com/mp/MP_verify_Mpvve3JGYQHP7mbm.txt），并确保可以访问。</p>
+<p><strong>1 遇到的问题</strong><br><strong>1.1 微信token验证失败</strong><br>原因：<br>springmvc框架，校验通过后，返回微信发送的随机字符串echostr的时候，多了引号，例如微信发送的是 123456，接口返回的是”123456”。<br>解决：<br>&lt;mvc:message-converters register-defaults=”true”&gt;节点下增加<code>&lt;bean class=&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;/&gt;</code><br>并且要放在MappingJackson2HttpMessageConverter前面</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/html和jsp的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1767,150 +1913,6 @@ ssl_prefer_server_ciphers on;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/mysql字符集问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bimb">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/155771927382939.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加菲猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/mysql字符集问题/" itemprop="url">mysql字符集问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T17:21:00+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>执行mysql语句报错：Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)  </p>
-<p><strong>原因：</strong><br>两张表字段collation不匹配</p>
-<p><strong>解决办法</strong><br>修改表字段字符集，保持2个表的字符集一致，修改方法：<br>     ALTER TABLE tablename CHANGE columnname columnname VARCHAR(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL; </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1963,7 +1965,7 @@ ssl_prefer_server_ciphers on;
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1974,7 +1976,7 @@ ssl_prefer_server_ciphers on;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1985,7 +1987,7 @@ ssl_prefer_server_ciphers on;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
