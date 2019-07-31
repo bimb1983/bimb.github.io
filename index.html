@@ -371,7 +371,7 @@
 <p><strong>服务器配置</strong><br>目的：<br>填写接口配置信息，正确响应微信发送的Token验证<br>配置方法：<br>登录公众平台-&gt;基本配置-&gt;服务器配置，填写自己的用来验证微信发送的Token的服务器接口地址。  </p>
 <p>该接口的get方法需要实现微信要求的token验证机制，验证通过后返回微信发送的随机字符串echostr；<br>新用户关注公众号或者老用户扫描公众号二维码，给公众号发消息，该接口的post方法会收到通知，收到通知后可以实现自己的业务逻辑，如果5秒内处理不完，需要先回复消息给微信。</p>
 <p><strong>网页授权域名配置</strong><br>目的：<br>用户在网页授权页同意授权给公众号后，微信会将授权数据传给一个回调页面，回调页面需在此域名下，以确保安全可靠<br>配置方法：<br>登录公众平台-&gt;公众号设置-&gt;网页授权域名,将公众平台提供的文件上传至填写域名指向的web服务器（或虚拟主机）的目录（若填写域名，将文件放置在域名根目录下，例如wx.qq.com/MP_verify_Mpvve3JGYQHP7mbm.txt；若填写路径，将文件放置在路径目录下，例如wx.qq.com/mp/MP_verify_Mpvve3JGYQHP7mbm.txt），并确保可以访问。</p>
-<p><strong>1 遇到的问题</strong><br><strong>1.1 微信token验证失败</strong><br>原因：<br>springmvc框架，校验通过后，返回微信发送的随机字符串echostr的时候，多了引号，例如微信发送的是123456，接口返回的是”123456”。<br>解决：<br>&lt;mvc:message-converters register-defaults=”true”&gt;节点下增加  <code>&lt;bean class=&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;/&gt;</code><br>并且要放在MappingJackson2HttpMessageConverter前面</p>
+<p><strong>1 遇到的问题</strong><br><strong>1.1 微信token验证失败</strong><br>原因：<br>springmvc框架，校验通过后，返回微信发送的随机字符串echostr的时候，多了引号，例如微信发送的是123456，接口返回的是”123456”。<br>解决：<br>&lt;mvc:message-converters register-defaults=”true”&gt;节点下增加<br>   <code>&lt;bean class=&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;/&gt;</code><br>并且要放在MappingJackson2HttpMessageConverter前面</p>
 
           
         
