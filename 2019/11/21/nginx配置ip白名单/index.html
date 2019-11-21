@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="nginx配置ip白名单有2种方法；方法一：白名单设置，访问根目录`location / {   allow 122.227.186.130;   allow 122.227.186.131;   deny  all;   }`   黑名单设置，访问根目录location / {                   deny 122.227.186.130;   } 特定目录访问限制locatio">
+<meta name="description" content="nginx配置ip白名单有2种方法；方法一：白名单设置，访问根目录`location / {   allow 122.227.186.130;   allow 122.227.186.131;   deny  all;   }`   黑名单设置，访问根目录`location / {   deny 122.227.186.130;   }`   特定目录访问限制location /test {">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx配置ip白名单">
 <meta property="og:url" content="http://yoursite.com/2019/11/21/nginx配置ip白名单/index.html">
 <meta property="og:site_name" content="加菲猫">
-<meta property="og:description" content="nginx配置ip白名单有2种方法；方法一：白名单设置，访问根目录`location / {   allow 122.227.186.130;   allow 122.227.186.131;   deny  all;   }`   黑名单设置，访问根目录location / {                   deny 122.227.186.130;   } 特定目录访问限制locatio">
+<meta property="og:description" content="nginx配置ip白名单有2种方法；方法一：白名单设置，访问根目录`location / {   allow 122.227.186.130;   allow 122.227.186.131;   deny  all;   }`   黑名单设置，访问根目录`location / {   deny 122.227.186.130;   }`   特定目录访问限制location /test {">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-21T06:36:18.380Z">
+<meta property="og:updated_time" content="2019-11-21T06:40:42.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx配置ip白名单">
-<meta name="twitter:description" content="nginx配置ip白名单有2种方法；方法一：白名单设置，访问根目录`location / {   allow 122.227.186.130;   allow 122.227.186.131;   deny  all;   }`   黑名单设置，访问根目录location / {                   deny 122.227.186.130;   } 特定目录访问限制locatio">
+<meta name="twitter:description" content="nginx配置ip白名单有2种方法；方法一：白名单设置，访问根目录`location / {   allow 122.227.186.130;   allow 122.227.186.131;   deny  all;   }`   黑名单设置，访问根目录`location / {   deny 122.227.186.130;   }`   特定目录访问限制location /test {">
 
 
 
@@ -347,9 +347,9 @@
 allow 122.227.186.131;  
 deny  all;  
 </code></pre><p>}`  </p>
-<p>黑名单设置，访问根目录<br><code>location / {  
-                deny 122.227.186.130;  
-}</code></p>
+<p>黑名单设置，访问根目录<br>`location / {  </p>
+<pre><code>deny 122.227.186.130;  
+</code></pre><p>}`  </p>
 <p>特定目录访问限制<br><code>location /test {  
                 allow 122.227.186.130;  
                 deny  all;  
