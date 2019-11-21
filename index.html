@@ -350,12 +350,12 @@
 allow 122.227.186.131;  
 deny  all;  
 </code></pre><p>}`  </p>
-<p>黑名单设置，访问根目录<br><code>location / {
-                deny 122.227.186.130;
+<p>黑名单设置，访问根目录<br><code>location / {  
+                deny 122.227.186.130;  
 }</code></p>
-<p>特定目录访问限制<br><code>location /test {
-                allow 122.227.186.130;
-                deny  all;
+<p>特定目录访问限制<br><code>location /test {  
+                allow 122.227.186.130;  
+                deny  all;  
 }</code></p>
 <p><strong>方法二：</strong><br>指定能访问的白名单<br>vi ip.conf<br>122.227.186.130 1  </p>
 <p>使用geo定义ip白名单变量<br>`geo $remote_addr $ip_whitelist{  </p>
