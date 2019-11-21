@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="加菲猫">
 <meta property="og:description" content="问题描述在centos系统下，把docker下的目录映射到宿机，程序往这个目录创建文件，提示没有权限。 原因centos7中安全模块selinux把权限禁掉了。   三种解决方法方法一在docker运行命令中加入 –privileged=true例：   docker run -d -p 8081:8080 -v /nas:/nas --privileged=true --name manage">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-21T06:57:58.788Z">
+<meta property="og:updated_time" content="2019-11-21T07:03:17.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker -v 挂载的目录没有权限解决办法">
 <meta name="twitter:description" content="问题描述在centos系统下，把docker下的目录映射到宿机，程序往这个目录创建文件，提示没有权限。 原因centos7中安全模块selinux把权限禁掉了。   三种解决方法方法一在docker运行命令中加入 –privileged=true例：   docker run -d -p 8081:8080 -v /nas:/nas --privileged=true --name manage">
@@ -346,7 +346,7 @@
 <p><strong>原因</strong><br>centos7中安全模块selinux把权限禁掉了。  </p>
 <p><strong>三种解决方法</strong><br><strong>方法一</strong><br>在docker运行命令中加入 –privileged=true<br>例：  </p>
 <pre><code>docker run -d -p 8081:8080 -v /nas:/nas --privileged=true --name manage  
-</code></pre><p><strong>方法二</strong><br>临时关闭selinux然后再打开<br>setenforce 0<br>setenforce 1</p>
+</code></pre><p><strong>方法二</strong><br>临时关闭selinux，容器运行成功后，再打开<br>setenforce 0<br>docker run …<br>setenforce 1</p>
 <p><strong>方法三</strong><br>添加linux规则，把要挂载的目录添加到selinux白名单<br>更改安全性文本的格式如下<br>chcon [-R] [-t type] [-u user] [-r role] 文件或者目录<br>选顷不参数：<br>-R  ：该目录下的所有目录也同时修改；<br>-t  ：后面接安全性本文的类型字段，例如 httpd_sys_content_t；<br>-u  ：后面接身份识别，例如 system_u；<br>-r  ：后面街觇色，例如 system_r<br>执行： chcon -Rt svirt_sandbox_file_t /home/daniu/docker/tomcat/webapps/</p>
 
       
