@@ -274,6 +274,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/16/前后端分离-跨域问题导致session不一致问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bimb">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/155771927382939.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="加菲猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/16/前后端分离-跨域问题导致session不一致问题/" itemprop="url">前后端分离-跨域问题导致session不一致问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T16:51:16+08:00">
+                2019-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>问题一</strong><br>前后端分离项目，前端vue，后端springboot，登录的时候，一直提示跨域<br><strong>问题原因</strong><br>前后端分离后前后端的域名不一样，请求的时候跨域了<br><strong>解决办法</strong><br>在后端的过滤器中配置允许跨域策略  </p>
+<pre><code>httpServletResponse.setHeader(&quot;Access-Control-Allow-Origin&quot;, httpServletResponse.getHeader(&quot;Origin&quot;));
+    if (httpServletRequest.getHeader(&quot;Access-Control-Request-Method&quot;) != null &amp;&amp; &quot;OPTIONS&quot;.equals(httpServletRequest.getMethod())) {
+        httpServletResponse.addHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;HEAD,GET,POST,PUT,DELETE,OPTIONS&quot;);
+        httpServletResponse.addHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;*&quot;);
+        httpServletResponse.addHeader(&quot;Access-Control-Max-Age&quot;, &quot;120&quot;);
+    }
+</code></pre><p><strong>问题二</strong><br>后端配置跨域策略后，请求不再跨域，但是验证码校验通不过<br><strong>问题原因</strong><br>跨域请求，正式请求之前先发起一次options预检请求，相当于发起2次请求，在进行session会话管理的时候，前端无法发送cookie到后端，前端每次访问后端都相当于一次新的会话，这样就导致session信息无法被保存，导致post请求后端session中的验证码获取不到，校验失败。<br><strong>解决办法</strong><br>第一步<br>在ajax中设置，withCredentials: true<br>默认情况下，跨源请求不提供凭据(cookie、HTTP认证及客户端SSL证明等)。通过将withCredentials属性设置为true，可以指定某个请求发送凭据。  </p>
+<p>第二步<br>服务端的Access-Control-Allow-Origin 不可以设置为”*”，必须指定明确的、与请求网页一致的域名。<br>response.setHeader(“Access-Control-Allow-Origin”, httpServletResponse.getHeader(“Origin”));  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/21/Docker-v-挂载的目录没有权限解决办法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1649,173 +1777,6 @@ location / {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/11/dockerfile/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bimb">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/155771927382939.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加菲猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/11/dockerfile/" itemprop="url">dockerfile</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-11T15:37:31+08:00">
-                2019-06-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong> Dockerfile 中最常用的指令</strong><br><strong>FROM</strong><br>指定 base 镜像  </p>
-<p><strong>MAINTAINER</strong><br>设置镜像的作者，可以是任意字符串。  </p>
-<p><strong>COPY</strong><br>将文件从 build context 复制到镜像。<br>COPY 支持两种形式：  </p>
-<ol>
-<li>COPY src dest  </li>
-<li>COPY [“src”, “dest”]<br>src 只能指定 build context 中的文件或目录。如果dest在容器中不存在，会被自动创建</li>
-</ol>
-<p><strong>ADD</strong><br>与 COPY 类似，从 build context 复制文件到镜像。 不同的是，如果 src 是归档文件（tar, zip, tgz, xz 等），文件会被自动解压到 dest。</p>
-<p><strong>ENV</strong><br>设置环境变量，环境变量可被后面的指令使用。例如：<br>ENV TZ=Asia/Shanghai<br>RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone</p>
-<p><strong>EXPOSE</strong><br>指定容器中的进程会监听的端口，Docker 可以将该端口暴露出来。</p>
-<p><strong>VOLUME</strong><br>将文件或目录声明为 volume。<br>Dockerfile中的VOLUME每次运行一个新的container时，都会为其自动创建一个匿名的volume，如果需要在不同container之间共享数据，那么我们依然需要通过docker run -it -v my-volume:/foo的方式将/foo中数据存放于指定的my-volume中。</p>
-<p><strong>WORKDIR</strong><br>为后面的 RUN, CMD, ENTRYPOINT, ADD 或 COPY 指令设置镜像中的当前工作目录。</p>
-<p><strong>RUN</strong><br>在容器中运行指定的命令。</p>
-<p><strong>CMD</strong><br>容器启动时运行指定的命令。<br>Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效。CMD 可以被 docker run 之后的参数替换。</p>
-<p><strong>ENTRYPOINT</strong><br>设置容器启动时运行的命令。<br>Dockerfile 中可以有多个 ENTRYPOINT 指令，但只有最后一个生效。 CMD 或 docker run 之后的参数会被当做参数传递给 ENTRYPOINT。</p>
-<p><strong>RUN、CMD 和 ENTRYPOINT</strong>  </p>
-<ol>
-<li>RUN 执行命令并创建新的镜像层，RUN 经常用于安装软件包。  </li>
-<li>CMD 设置容器启动后默认执行的命令及其参数，但 CMD 能够被 docker run 后面跟的命令行参数替换。  </li>
-<li>ENTRYPOINT 配置容器启动时运行的命令。</li>
-</ol>
-<p>我们可用两种方式指定 RUN、CMD 和 ENTRYPOINT 要运行的命令：Shell 格式和 Exec 格式， 二者在使用上有细微的区别。</p>
-<p>Shell 格式:</p>
-<p>RUN apt-get install python3<br>CMD echo “Hello world”<br>ENTRYPOINT echo “Hello world”<br>当指令执行时，shell 格式底层会调用 /bin/sh -c <command></p>
-<p>Exec 格式：</p>
-<p>RUN [“apt-get”, “install”, “python3”]<br>CMD [“/bin/echo”, “Hello world”]<br>ENTRYPOINT [“/bin/echo”, “Hello world”]<br>当指令执行时，会直接调用 ，不会被 shell 解析。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1868,7 +1829,7 @@ location / {
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1890,7 +1851,7 @@ location / {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

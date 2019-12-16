@@ -274,6 +274,173 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/11/dockerfile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bimb">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/155771927382939.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="加菲猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/11/dockerfile/" itemprop="url">dockerfile</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-11T15:37:31+08:00">
+                2019-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong> Dockerfile 中最常用的指令</strong><br><strong>FROM</strong><br>指定 base 镜像  </p>
+<p><strong>MAINTAINER</strong><br>设置镜像的作者，可以是任意字符串。  </p>
+<p><strong>COPY</strong><br>将文件从 build context 复制到镜像。<br>COPY 支持两种形式：  </p>
+<ol>
+<li>COPY src dest  </li>
+<li>COPY [“src”, “dest”]<br>src 只能指定 build context 中的文件或目录。如果dest在容器中不存在，会被自动创建</li>
+</ol>
+<p><strong>ADD</strong><br>与 COPY 类似，从 build context 复制文件到镜像。 不同的是，如果 src 是归档文件（tar, zip, tgz, xz 等），文件会被自动解压到 dest。</p>
+<p><strong>ENV</strong><br>设置环境变量，环境变量可被后面的指令使用。例如：<br>ENV TZ=Asia/Shanghai<br>RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone</p>
+<p><strong>EXPOSE</strong><br>指定容器中的进程会监听的端口，Docker 可以将该端口暴露出来。</p>
+<p><strong>VOLUME</strong><br>将文件或目录声明为 volume。<br>Dockerfile中的VOLUME每次运行一个新的container时，都会为其自动创建一个匿名的volume，如果需要在不同container之间共享数据，那么我们依然需要通过docker run -it -v my-volume:/foo的方式将/foo中数据存放于指定的my-volume中。</p>
+<p><strong>WORKDIR</strong><br>为后面的 RUN, CMD, ENTRYPOINT, ADD 或 COPY 指令设置镜像中的当前工作目录。</p>
+<p><strong>RUN</strong><br>在容器中运行指定的命令。</p>
+<p><strong>CMD</strong><br>容器启动时运行指定的命令。<br>Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效。CMD 可以被 docker run 之后的参数替换。</p>
+<p><strong>ENTRYPOINT</strong><br>设置容器启动时运行的命令。<br>Dockerfile 中可以有多个 ENTRYPOINT 指令，但只有最后一个生效。 CMD 或 docker run 之后的参数会被当做参数传递给 ENTRYPOINT。</p>
+<p><strong>RUN、CMD 和 ENTRYPOINT</strong>  </p>
+<ol>
+<li>RUN 执行命令并创建新的镜像层，RUN 经常用于安装软件包。  </li>
+<li>CMD 设置容器启动后默认执行的命令及其参数，但 CMD 能够被 docker run 后面跟的命令行参数替换。  </li>
+<li>ENTRYPOINT 配置容器启动时运行的命令。</li>
+</ol>
+<p>我们可用两种方式指定 RUN、CMD 和 ENTRYPOINT 要运行的命令：Shell 格式和 Exec 格式， 二者在使用上有细微的区别。</p>
+<p>Shell 格式:</p>
+<p>RUN apt-get install python3<br>CMD echo “Hello world”<br>ENTRYPOINT echo “Hello world”<br>当指令执行时，shell 格式底层会调用 /bin/sh -c <command></p>
+<p>Exec 格式：</p>
+<p>RUN [“apt-get”, “install”, “python3”]<br>CMD [“/bin/echo”, “Hello world”]<br>ENTRYPOINT [“/bin/echo”, “Hello world”]<br>当指令执行时，会直接调用 ，不会被 shell 解析。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/11/docker组成详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1692,228 +1859,6 @@ ssl_prefer_server_ciphers on;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/markdown语法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bimb">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/155771927382939.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加菲猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/markdown语法/" itemprop="url">markdown语法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T15:00:11+08:00">
-                2019-05-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Hexo下使用的MarkDown为Github的GFM。<br><strong>语法</strong>  </p>
-<p><strong>分段</strong>：两个回车</p>
-<p><strong>换行</strong>：两个空格 + 回车  </p>
-<p><strong>标题</strong> # ~ ######，#号的个数表示几级标题，最多六级标题  </p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p><strong>强调</strong> <strong>文字</strong> ， <strong>文字</strong> ， _文字_ ， <em>文字</em> ， 文字<br>字体 <strong>加粗</strong> 显示<br>字体 <em>斜体</em> 显示<br>字体 <strong><em>加粗并斜体</em></strong> 显示<br>字体 <strong>加粗</strong> 显示<br>字体 _斜体_ 显示<br>字体 <strong><em>加粗并斜体</em></strong> 显示<br>组合 <em><strong>加粗并斜体</strong></em> 显示  </p>
-<p><strong>引用</strong> &gt; 注意后面紧跟个空格  </p>
-<p><strong>表格</strong> - 和 | 分割行和列 ， : 控制对其方式，表格的上一句必须换行  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">左对齐</th>
-<th style="text-align:right">右对齐</th>
-<th style="text-align:center">居中</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Computer</td>
-<td style="text-align:right">5000 元</td>
-<td style="text-align:center">1台</td>
-</tr>
-<tr>
-<td style="text-align:left">Phone</td>
-<td style="text-align:right">1999 元</td>
-<td style="text-align:center">1部</td>
-</tr>
-</tbody>
-</table>
-<p><strong>代码块</strong> 四个空格 开头，或使用3个反引号括起来：<code>代码内容</code></p>
-<pre><code class="//代码块放置于3个反引号中间，回车即可换行">#include&lt;stdio.h&gt;
-int main()
-{
-    printf(&quot;Hello hexo!&quot;);
-    return 0;
-}
-
-</code></pre>
-<p>单行代码使用两个反引号：<code>code</code></p>
-<p><strong>链接</strong> <a href="链接地址">文字</a><br><a href="https://bimb1983.github.io/" target="_blank" rel="noopener">首页</a><br><a href="/about/">我的信息</a>  </p>
-<p><strong>图片</strong> <img src="图片地址" alt="图片说明">,地址可以是本地路径，也可以是网络地址<br><img src="/images/155771927382939.gif" alt="我的头像">  </p>
-<p><strong>列表</strong>： * ， + ， - ， 1. ，选其中之一，后面需要跟一个空格<br><strong>1. 无序列表</strong>  </p>
-<ul>
-<li>*列表展示  </li>
-<li>*列表展示  <ul>
-<li>*列表展示  </li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>+列表展示  </li>
-<li>+列表展示  <ul>
-<li>+列表展示  </li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>-列表展示  </li>
-<li>-列表展示  <ul>
-<li>-列表展示  </li>
-</ul>
-</li>
-</ul>
-<p><strong>2. 有序列表</strong> 这种方式不用手动设置序号，自动生成列表序列  </p>
-<ol>
-<li><strong>我是一级序列</strong>  </li>
-<li><strong>我是一级序列</strong>  </li>
-<li><strong>我是一级序列</strong>  <ol>
-<li><em>我是二级序列</em>  </li>
-<li><em>我是二级序列</em>  </li>
-<li><em>我是二级序列</em>  </li>
-</ol>
-</li>
-<li><strong>我是一级序列</strong>  </li>
-<li><strong>我是一级序列</strong>  <ol>
-<li><em>我是二级序列</em>  </li>
-<li><em>我是二级序列</em>  </li>
-<li>还是二级序列，没有三级序列  </li>
-</ol>
-</li>
-</ol>
-<p><strong>删除线</strong><br><del>删除一段文本</del>  </p>
-<p><strong>高亮</strong><br>使用<code>`</code>来强调字符   //想打出   (反引号)需要转义的，加<code></code>标签强调<br>比如<code>突出背景色</code>来显示强调效果  </p>
-<p><strong>嵌套使用</strong></p>
-<blockquote>
-<p>动物</p>
-<blockquote>
-<p>水生动物<br>陆生动物</p>
-<blockquote>
-<p>猴子<br>人</p>
-<blockquote>
-<p>程序猿<br>攻城狮<br>产品狗 //这里需要注意，没有空行间隔，忽略降级引用标记<br>射鸡虱   //这里需要注意，没有空行间隔，忽略降级引用标记</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>两栖类动物</p>
-<blockquote>
-<p>大鳄鱼<br>唐老鸭</p>
-</blockquote>
-</blockquote>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1966,7 +1911,7 @@ int main()
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1988,7 +1933,7 @@ int main()
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
