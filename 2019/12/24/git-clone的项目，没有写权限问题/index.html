@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="git,权限,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Enjoy time">
-<meta property="og:type" content="website">
-<meta property="og:title" content="加菲猫">
-<meta property="og:url" content="http://yoursite.com/tags/微信/index.html">
+<meta name="description" content="问题 centos系统，git clone到本地的项目，没有写权限   解决办法    修改项目权限chmod -R 777 项目目录   此时有写权限了，但是git会记录修改的权限信息, 需要忽略掉，否则git pull的时候会冲突在项目根目录下执行，git config core.fileMode false  这样就有写权限，并且能正常git pull了">
+<meta name="keywords" content="git,权限">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git clone的项目，没有写权限问题">
+<meta property="og:url" content="http://yoursite.com/2019/12/24/git-clone的项目，没有写权限问题/index.html">
 <meta property="og:site_name" content="加菲猫">
-<meta property="og:description" content="Enjoy time">
+<meta property="og:description" content="问题 centos系统，git clone到本地的项目，没有写权限   解决办法    修改项目权限chmod -R 777 项目目录   此时有写权限了，但是git会记录修改的权限信息, 需要忽略掉，否则git pull的时候会冲突在项目根目录下执行，git config core.fileMode false  这样就有写权限，并且能正常git pull了">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-24T02:03:48.312Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="加菲猫">
-<meta name="twitter:description" content="Enjoy time">
+<meta name="twitter:title" content="git clone的项目，没有写权限问题">
+<meta name="twitter:description" content="问题 centos系统，git clone到本地的项目，没有写权限   解决办法    修改项目权限chmod -R 777 项目目录   此时有写权限了，但是git会记录修改的权限信息, 需要忽略掉，否则git pull的时候会冲突在项目根目录下执行，git config core.fileMode false  这样就有写权限，并且能正常git pull了">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/微信/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/24/git-clone的项目，没有写权限问题/">
 
 
 
 
 
-  <title>标签: 微信 | 加菲猫</title>
+  <title>git clone的项目，没有写权限问题 | 加菲猫</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <a href="https://github.com/bimb1983"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
@@ -259,52 +261,155 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>微信<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/24/git-clone的项目，没有写权限问题/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bimb">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/155771927382939.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="加菲猫">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/07/31/微信公众号开发-配置/" itemprop="url">
-              
-                <span itemprop="name">微信公众号开发-配置</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">git clone的项目，没有写权限问题</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-31T09:00:00+08:00" content="2019-07-31">
-          07-31
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-24T09:58:41+08:00">
+                2019-12-24
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>问题 </strong><br>centos系统，git clone到本地的项目，没有写权限  </p>
+<p><strong>解决办法</strong>  </p>
+<ol>
+<li>修改项目权限<br>chmod -R 777 项目目录  </li>
+<li>此时有写权限了，但是git会记录修改的权限信息, 需要忽略掉，否则git pull的时候会冲突<br>在项目根目录下执行，git config core.fileMode false</li>
+</ol>
+<p>这样就有写权限，并且能正常git pull了</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+            <a href="/tags/权限/" rel="tag"># 权限</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/16/前后端分离-跨域问题导致session不一致问题/" rel="next" title="前后端分离-跨域问题导致session不一致问题">
+                <i class="fa fa-chevron-left"></i> 前后端分离-跨域问题导致session不一致问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -312,6 +417,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -540,6 +649,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
