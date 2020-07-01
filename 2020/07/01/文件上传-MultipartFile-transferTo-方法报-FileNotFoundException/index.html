@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="问题文件上传,调用MultipartFile.transferTo() 方法报 FileNotFoundException：C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\localhost\ROOT\upload\test.pdf 原因file.transferTo 方法调用时，判断如果是相对">
+<meta name="description" content="问题文件上传,调用MultipartFile.transferTo() 方法报 FileNotFoundException：C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\localhost\ROOT\upload\test.pdf 原因file.transferTo 方法调用时，如果是相对路径">
 <meta name="keywords" content="java、文件上传">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件上传,MultipartFile.transferTo() 方法报 FileNotFoundException">
 <meta property="og:url" content="http://yoursite.com/2020/07/01/文件上传-MultipartFile-transferTo-方法报-FileNotFoundException/index.html">
 <meta property="og:site_name" content="加菲猫">
-<meta property="og:description" content="问题文件上传,调用MultipartFile.transferTo() 方法报 FileNotFoundException：C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\localhost\ROOT\upload\test.pdf 原因file.transferTo 方法调用时，判断如果是相对">
+<meta property="og:description" content="问题文件上传,调用MultipartFile.transferTo() 方法报 FileNotFoundException：C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\localhost\ROOT\upload\test.pdf 原因file.transferTo 方法调用时，如果是相对路径">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-01T09:01:28.905Z">
+<meta property="og:updated_time" content="2020-07-01T09:08:37.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文件上传,MultipartFile.transferTo() 方法报 FileNotFoundException">
-<meta name="twitter:description" content="问题文件上传,调用MultipartFile.transferTo() 方法报 FileNotFoundException：C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\localhost\ROOT\upload\test.pdf 原因file.transferTo 方法调用时，判断如果是相对">
+<meta name="twitter:description" content="问题文件上传,调用MultipartFile.transferTo() 方法报 FileNotFoundException：C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\localhost\ROOT\upload\test.pdf 原因file.transferTo 方法调用时，如果是相对路径">
 
 
 
@@ -342,8 +342,8 @@
       
 
       
-        <p><strong>问题</strong><br>文件上传,调用MultipartFile.transferTo() 方法报 FileNotFoundException：C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\localhost\ROOT\upload\test.pdf</p>
-<p><strong>原因</strong><br>file.transferTo 方法调用时，判断如果是相对路径，则使用temp目录，为父目录<br>因此，实际保存位置为 C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\localhost\ROOT\upload\doc20170816162034_001.jp，跟我们的实际路径不一致。</p>
+        <p><strong>问题</strong><br>文件上传,调用MultipartFile.transferTo() 方法报 FileNotFoundException：C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\<br>localhost\ROOT\upload\test.pdf</p>
+<p><strong>原因</strong><br>file.transferTo 方法调用时，如果是相对路径，则使用temp目录，为父目录位置 C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat<br>\localhost\ROOT\upload\test.pdf，跟我们的实际路径不一致。</p>
 <p><strong>解决</strong>  </p>
 <ol>
 <li>调用transferTo方法的时候传入文件的绝对路径，使用该方法，问题解决  </li>

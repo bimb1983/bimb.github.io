@@ -345,8 +345,8 @@
       
         
           
-            <p><strong>问题</strong><br>文件上传,调用MultipartFile.transferTo() 方法报 FileNotFoundException：C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\localhost\ROOT\upload\test.pdf</p>
-<p><strong>原因</strong><br>file.transferTo 方法调用时，判断如果是相对路径，则使用temp目录，为父目录<br>因此，实际保存位置为 C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\localhost\ROOT\upload\doc20170816162034_001.jp，跟我们的实际路径不一致。</p>
+            <p><strong>问题</strong><br>文件上传,调用MultipartFile.transferTo() 方法报 FileNotFoundException：C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat\<br>localhost\ROOT\upload\test.pdf</p>
+<p><strong>原因</strong><br>file.transferTo 方法调用时，如果是相对路径，则使用temp目录，为父目录位置 C:\Users\xxxx\AppData\Local\Temp\tomcat.372873030384525225.8080\work\Tomcat<br>\localhost\ROOT\upload\test.pdf，跟我们的实际路径不一致。</p>
 <p><strong>解决</strong>  </p>
 <ol>
 <li>调用transferTo方法的时候传入文件的绝对路径，使用该方法，问题解决  </li>
