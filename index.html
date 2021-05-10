@@ -274,6 +274,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/10/记一次异步、并发场景下造成的数据读取不到问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bimb">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/155771927382939.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="加菲猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/05/10/记一次异步、并发场景下造成的数据读取不到问题/" itemprop="url">记一次异步、并发场景下造成的数据读取不到问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-10T16:32:53+08:00">
+                2021-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>业务场景</strong><br>A系统处理完数据后，异步通知B系统任务已经完成，B系统收到通知后拉取A系统生成的数据进行后续任务处理。<br>一开始以为A系统任务已经处理结束，通过异步的方式通知B系统，B系统可以正常读取A系统生成的新数据。  </p>
+<p><strong>问题</strong><br>B系统处理任务失败，定位到原因是读取不到A系统生成的新数据。</p>
+<p><strong>原因</strong><br>在A系统的异步通知线程没有收到B系统的response之前，A系统的主线程的事务其实还没结束，所以A系统的异步线程中的代码及异步通知接收方B系统都无法读取A系统主线程产生的数据，导致B系统任务处理失败。</p>
+<p><strong>解决办法</strong><br>问题确定后，解决起来就容易了  </p>
+<ol>
+<li>其实A系统任务处理内容比较多，且没必要使用事务，去掉事务后，问题解决  </li>
+<li>B系统收到通知马上返回确认信息给A系统，然后再去执行任务。</li>
+</ol>
+<p><strong>总结</strong><br>一开始怀疑A系统的数据落库慢造成B系统无法读取数据，加了一些日志监控都没发现异常，走了一些歪路。<br>总结起来，其实是因为在异步线程中不当的读取主线程的数据，造成的数据不可读；</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/01/文件上传-MultipartFile-transferTo-方法报-FileNotFoundException/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1516,183 +1644,6 @@ root /tmp;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/把一个已存在的springmvc项目上传到git服务器并部署到tomcat过程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bimb">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/155771927382939.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加菲猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/04/把一个已存在的springmvc项目上传到git服务器并部署到tomcat过程/" itemprop="url">把一个已存在的springmvc项目上传到git服务器并部署到tomcat过程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-04T15:04:48+08:00">
-                2019-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/项目管理/" itemprop="url" rel="index">
-                    <span itemprop="name">项目管理</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>项目上传到git服务器</strong>  </p>
-<ol>
-<li><strong>把项目导入到idea</strong>  </li>
-<li><strong>创建git本地仓库</strong><br>使用idea的VCS-&gt;import into Version Control-&gt;Create Git Repository创建本地仓库；或者在项目根目录git bash here打开git命令窗口，执行git init创建本地仓库  </li>
-<li><strong>关联远程仓库</strong><br>git remote add origin 远程地址  </li>
-<li><strong>将全部文件加入git版本管理 .的意思是将当前文件夹下的全部文件放到版本管理中</strong><br>git add .  </li>
-<li><strong>提交文件 使用-m 编写注释</strong><br>git commit -m “注释”  </li>
-<li><strong>推送到远程分支</strong><br>git push</li>
-</ol>
-<p><img src="/images/git-add.png" alt="git上传步骤"></p>
-<p><strong>项目部署到tomcat</strong>  </p>
-<ol>
-<li><strong>我是maven项目，使用maven命令打包</strong><br>maven clean package -DskipTests  </li>
-<li><strong>把打包生成的war包放到tomcat服务器的webapps目录下</strong><br>如果要放到其它目录，修改host中的appBase或者context中的docBase    <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">host</span> <span class="attr">appBase</span>=<span class="string">"d:/aaa"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">"/smswap"</span> <span class="attr">reloadable</span>=<span class="string">"true"</span> <span class="attr">docBase</span>=<span class="string">"D:\workspace\smswap\WebRoot"</span>&gt;</span><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">host</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>总结：<br>如果你想自己指定路径，那么应该在docBase里面<br>如果你想简单，那么直接把他们复制到appBase下面就行了  </p>
-<ol start="3">
-<li><strong>启动tomcat，就可以访问项目了</strong><br>如果启动脚本报权限不足，执行chmod +x *.sh  </li>
-<li><p><strong>域名绑定</strong><br>如果要把已有的域名绑定到服务器的ip，在nginx配置server  </p>
-<p> server {</p>
-<pre><code>listen 80;
-server_name credit.qa.look.com;
-location / {
-    proxy_redirect off;
-            proxy_set_header HOST $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_pass http://192.168.1.196:8082;
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection &quot;upgrade&quot;;
-}
-</code></pre><p> }</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1745,7 +1696,7 @@ location / {
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1767,7 +1718,7 @@ location / {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1805,7 +1756,7 @@ location / {
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
