@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java,并发,异步,">
+  <meta name="keywords" content="java,事务,异步,">
 
 
 
@@ -80,16 +80,16 @@
 
 
 <meta name="description" content="业务场景　　A系统处理完数据后，异步通知B系统任务已经完成，B系统收到通知后拉取A系统生成的数据进行后续任务处理。一开始以为A系统任务已经处理结束，通过异步的方式通知B系统，B系统可以正常读取A系统生成的新数据。   问题　　B系统处理任务失败，定位到原因是读取不到A系统生成的新数据。 原因  　　在A系统的异步通知线程没有收到B系统的response之前，A系统的主线程的事务其实还没结束，所以A">
-<meta name="keywords" content="java,并发,异步">
+<meta name="keywords" content="java,事务,异步">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记一次异步、并发场景下造成的数据读取不到问题">
+<meta property="og:title" content="记一次异步线程读取不到主线程产生的数据问题">
 <meta property="og:url" content="http://yoursite.com/2021/05/10/记一次异步、并发场景下造成的数据读取不到问题/index.html">
 <meta property="og:site_name" content="加菲猫">
 <meta property="og:description" content="业务场景　　A系统处理完数据后，异步通知B系统任务已经完成，B系统收到通知后拉取A系统生成的数据进行后续任务处理。一开始以为A系统任务已经处理结束，通过异步的方式通知B系统，B系统可以正常读取A系统生成的新数据。   问题　　B系统处理任务失败，定位到原因是读取不到A系统生成的新数据。 原因  　　在A系统的异步通知线程没有收到B系统的response之前，A系统的主线程的事务其实还没结束，所以A">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-05-10T09:14:08.493Z">
+<meta property="og:updated_time" content="2021-05-10T09:36:12.704Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记一次异步、并发场景下造成的数据读取不到问题">
+<meta name="twitter:title" content="记一次异步线程读取不到主线程产生的数据问题">
 <meta name="twitter:description" content="业务场景　　A系统处理完数据后，异步通知B系统任务已经完成，B系统收到通知后拉取A系统生成的数据进行后续任务处理。一开始以为A系统任务已经处理结束，通过异步的方式通知B系统，B系统可以正常读取A系统生成的新数据。   问题　　B系统处理任务失败，定位到原因是读取不到A系统生成的新数据。 原因  　　在A系统的异步通知线程没有收到B系统的response之前，A系统的主线程的事务其实还没结束，所以A">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>记一次异步、并发场景下造成的数据读取不到问题 | 加菲猫</title>
+  <title>记一次异步线程读取不到主线程产生的数据问题 | 加菲猫</title>
   
 
 
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">记一次异步、并发场景下造成的数据读取不到问题</h1>
+          <h1 class="post-title" itemprop="name headline">记一次异步线程读取不到主线程产生的数据问题</h1>
         
 
         <div class="post-meta">
@@ -367,7 +367,7 @@
           
             <a href="/tags/java/" rel="tag"># java</a>
           
-            <a href="/tags/并发/" rel="tag"># 并发</a>
+            <a href="/tags/事务/" rel="tag"># 事务</a>
           
             <a href="/tags/异步/" rel="tag"># 异步</a>
           
